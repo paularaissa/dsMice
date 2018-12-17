@@ -1,0 +1,33 @@
+Package: dsMice
+Maintainer: <paula.r.silva@inesctec.pt>
+Author: <rcamacho@fe.up.pt>, <paula.r.silva@inesctec.pt>
+Version: 1.0.0
+License: GPL-3
+Title: Distributed Statistical Computing - Server Side Package
+Description: Client side functions for distributed multiple imputations.
+Imports: Rdpack
+RdMacros: Rdpack
+Roxygen: list(markdown = TRUE)
+AggregateMethods: matrixProductDS,
+    matrixMethod,
+    getVarbyFormula,
+    isValidDS,
+    getVarByName,
+    bindyDS,
+    fittedDS
+Options: datashield.privacyLevel=1
+RoxygenNote: 6.1.1
+Collate: 
+    'checkClass.R'
+    'extract.R'
+    'findLoginObjects.R'
+    'fittedDS.R'
+    'getHistogram.R'
+    'getOpals.R'
+    'getVarByName.R'
+    'getVarbyFormula.R'
+    'isAssigned.R'
+    'isDefined.R'
+    'isValidDS.R'
+    'matrixMethod.R'
+    'setFilterDS.R'
