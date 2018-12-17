@@ -19,7 +19,7 @@
 
 getHistogram <- function(x) {
   bind.x <- getVarByName(x)
-  hist <- unique(bind.x)
+  #hist <- unique(bind.x)
   #colnames(hist) <- c("value", "freq")
   # for (value in intervalList) {
   #   freq <- listValues[(listValues<=value)]
@@ -32,6 +32,6 @@ getHistogram <- function(x) {
   #   hist2$freq[i] <- hist$freq[i] - hist$freq[i-1]
   # }
 
-  return(hist)
+  return(bind.x)
 
 }
