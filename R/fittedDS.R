@@ -39,9 +39,8 @@ fittedDS <- function(beta, formula=NULL, x=NULL) {
   bind.x <- bind.x[,-1]
   
   #Formula to calculate the fitted values
-  teste <- list()
   estimated <- 0
-  teste <- which(is.na(bind.y))
+  teste <- is.na(bind.y)
   # for(i in 1:nrow(bind.y)) {
   #   if(is.na(bind.y[i])) {
   #     estimated <- bind.x[i,] %*% beta.reg
