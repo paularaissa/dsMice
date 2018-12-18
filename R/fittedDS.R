@@ -34,7 +34,7 @@ fittedDS <- function(beta, formula=NULL, x=NULL) {
   if (is.null(x)) {
     bindxy <- getVarbyFormula(formula)
     bindxy <- data.frame(bindxy)
-    #bindxy <- bindxy[!complete.cases(bindxy[[3]]),]
+    bindxy <- bindxy[!complete.cases(bindxy[[3]]),]
     # #rowNames <- row.names(bindxy)
     # bind.x <- data.matrix(bindxy$x)
   }
