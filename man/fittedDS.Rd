@@ -4,12 +4,12 @@
 \alias{fittedDS}
 \title{Partial Computation for Model Fitted Values}
 \usage{
-fittedDS(formula)
+fittedDS(beta, formula)
 }
 \arguments{
-\item{formula}{a string character to be transformed as an object of class \code{formula}.}
-
 \item{beta}{is a list of the regression coefficients.}
+
+\item{formula}{a string character to be transformed as an object of class \code{formula}.}
 
 \item{x}{is a study variable.}
 }

@@ -17,9 +17,9 @@
 #' @export
 #'
 
-fittedDS <- function(formula) {
+fittedDS <- function(beta, formula) {
 
-  return(formula)
+  return(list(beta,formula))
   
   #Data transformations
   # if(class(beta)=="character"){
