@@ -19,7 +19,7 @@
 
 fittedDS <- function(beta, formula=NULL, x=NULL) {
 
-  return(list(beta, formula))
+  return(beta)
   
   #Data transformations
   # if(class(beta)=="character"){
