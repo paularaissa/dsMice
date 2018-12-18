@@ -18,40 +18,34 @@
 #'
 
 getFitted <- function(beta, formula) {
-
-  return(beta)
   
   #Data transformations
-  # if(class(beta)=="character"){
-  #   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
-  #   beta.reg <- data.matrix(beta.reg.aux)
-  # } else {
-  #   beta.reg <- beta
-  # }
+  if(class(beta)=="character"){
+    beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
+    beta.reg <- data.matrix(beta.reg.aux)
+  } else {
+    beta.reg <- beta
+  }
   # 
   # #Retrive the values and variables x
-  # if(is.null(formula)) {
-  #   bind.x <- data.matrix(x)
+
+    bindxy <- dsMice::getVarbyFormula(formula)
+    # bind.x <- data.matrix(bindxy$x)
+    # bind.y <- data.matrix(bindxy$y)
+  # bind.x <- bind.x[,-1]
+
+  #Formula to calculate the fitted values
+  # estimated <- 0
+  # teste <- is.na(bind.y)
+  # for(i in 1:nrow(bind.y)) {
+  #   if(is.na(bind.y[i])) {
+  #     estimated <- bind.x[i,] %*% beta.reg
+  #     #teste <- rbind(teste, estimated)
+  #   }
   # }
-  # if (is.null(x)) {
-  #   bindxy <- getVarbyFormula(formula)
-  #   # bind.x <- data.matrix(bindxy$x)
-  #   # bind.y <- data.matrix(bindxy$y)
-  # }
-  # # bind.x <- bind.x[,-1]
-  # 
-  # #Formula to calculate the fitted values
-  # # estimated <- 0
-  # # teste <- is.na(bind.y)
-  # # for(i in 1:nrow(bind.y)) {
-  # #   if(is.na(bind.y[i])) {
-  # #     estimated <- bind.x[i,] %*% beta.reg
-  # #     #teste <- rbind(teste, estimated)
-  # #   }
-  # # }
-  # #y.hat <- bind.x %*% beta.reg
-  # #row.names(y.hat) <- rowNames
-  # 
-  # return(bindxy)
+  #y.hat <- bind.x %*% beta.reg
+  #row.names(y.hat) <- rowNames
+
+  return(bindxy)
 
 }
