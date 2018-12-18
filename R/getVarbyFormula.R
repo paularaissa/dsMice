@@ -21,7 +21,7 @@
 getVarbyFormula <- function(formula, subset=NULL, weight=NULL, family=NULL) {
 
   model.formula <- as.formula(formula)
-  model <- model.frame(model.formula, subset)
+  model <- model.frame(formula=model.formula, subset=subset, na.action=na.pass)
 
   if (is.null(weight)) weight <- 1
   x.vars <- model[-1] * weight
