@@ -38,12 +38,14 @@ matrixMethod <- function(formula, subset=NULL, weight=1, family=NULL) {
   
   bind.x <- data.matrix(na.omit(bindxy$x))
   bind.y <- data.matrix(na.omit(bindxy$y))
+  
+  return(bind.x)
 
-  xtx <- t(bind.x) %*% bind.x
-  xty <- t(bind.x) %*% bind.y
-
-  sum.y <- sum(bind.y)
-  n.rows <- nrow(bind.y)
-
-  return(list(xtx = xtx, xty = xty, sum.y = sum.y, n.rows = n.rows))
+  # xtx <- t(bind.x) %*% bind.x
+  # xty <- t(bind.x) %*% bind.y
+  # 
+  # sum.y <- sum(bind.y)
+  # n.rows <- nrow(bind.y)
+  # 
+  # return(list(xtx = xtx, xty = xty, sum.y = sum.y, n.rows = n.rows))
 }
