@@ -4,7 +4,7 @@
 \alias{getFitted}
 \title{Partial Computation for Model Fitted Values}
 \usage{
-getFitted(beta)
+getFitted(beta, formula)
 }
 \arguments{
 \item{beta}{is a list of the regression coefficients.}

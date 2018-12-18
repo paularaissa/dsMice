@@ -17,7 +17,7 @@
 #' @export
 #'
 
-getFitted <- function(beta) {
+getFitted <- function(beta, formula) {
 
   return(beta)
   
