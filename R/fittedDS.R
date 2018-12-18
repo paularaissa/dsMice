@@ -33,14 +33,14 @@ fittedDS <- function(beta, formula=NULL, x=NULL) {
   }
   if (is.null(x)) {
     bindxy <- getVarbyFormula(formula)
-    bind.x <- data.matrix(bindxy$x)
-    bind.y <- data.matrix(bindxy$y)
+    # bind.x <- data.matrix(bindxy$x)
+    # bind.y <- data.matrix(bindxy$y)
   }
-  bind.x <- bind.x[,-1]
+  # bind.x <- bind.x[,-1]
   
   #Formula to calculate the fitted values
-  estimated <- 0
-  teste <- is.na(bind.y)
+  # estimated <- 0
+  # teste <- is.na(bind.y)
   # for(i in 1:nrow(bind.y)) {
   #   if(is.na(bind.y[i])) {
   #     estimated <- bind.x[i,] %*% beta.reg
@@ -50,6 +50,6 @@ fittedDS <- function(beta, formula=NULL, x=NULL) {
   #y.hat <- bind.x %*% beta.reg
   #row.names(y.hat) <- rowNames
 
-  return(bind.y)
+  return(bindxy)
 
 }
