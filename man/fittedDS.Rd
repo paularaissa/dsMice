@@ -4,7 +4,7 @@
 \alias{fittedDS}
 \title{Partial Computation for Model Fitted Values}
 \usage{
-fittedDS(beta, formula = NULL, x = NULL)
+fittedDS(beta, formula)
 }
 \arguments{
 \item{beta}{is a list of the regression coefficients.}

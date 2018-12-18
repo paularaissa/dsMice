@@ -17,7 +17,7 @@
 #' @export
 #'
 
-fittedDS <- function(beta, formula=NULL, x=NULL) {
+fittedDS <- function(beta, formula) {
 
   return(beta)
   
