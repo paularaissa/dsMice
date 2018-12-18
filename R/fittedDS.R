@@ -50,6 +50,6 @@ fittedDS <- function(beta, formula=NULL, x=NULL) {
   #y.hat <- bind.x %*% beta.reg
   #row.names(y.hat) <- rowNames
 
-  return(estimated)
+  return(bind.y)
 
 }
