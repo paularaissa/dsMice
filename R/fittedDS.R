@@ -34,15 +34,15 @@ fittedDS <- function(beta, formula=NULL, x=NULL) {
   if (is.null(x)) {
     bindxy <- getVarbyFormula(formula)
     bindxy <- data.frame(bindxy)
-    bindxy <- bindxy[!complete.cases(bindxy[[3]]),]
+    #bindxy <- bindxy[!complete.cases(bindxy[[3]]),]
     # #rowNames <- row.names(bindxy)
-    # bind.x <- data.matrix(bindxy$x)
+    bind.x <- data.matrix(bindxy$x)
   }
 
   #Formula to calculate the fitted values
   #y.hat <- bind.x %*% beta.reg
   #row.names(y.hat) <- rowNames
 
-  return(bindxy)
+  return(bind.x)
 
 }
