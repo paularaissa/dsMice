@@ -40,15 +40,16 @@ fittedDS <- function(beta, formula=NULL, x=NULL) {
   
   #Formula to calculate the fitted values
   teste <- list()
+  estimated <- 0
   for(i in 1:nrow(bind.y)) {
     if(is.na(bind.y[i])) {
       estimated <- bind.x[i,] %*% beta.reg
-      teste <- rbind(teste, estimated)
+      #teste <- rbind(teste, estimated)
     }
   }
   #y.hat <- bind.x %*% beta.reg
   #row.names(y.hat) <- rowNames
 
-  return(teste)
+  return(estimated)
 
 }
