@@ -14,7 +14,7 @@ AggregateMethods: matrixProductDS,
     isValidDS,
     getVarByName,
     bindyDS,
-    fittedDS,
+    getFitted,
     getHistogram
 Options: datashield.privacyLevel=1
 RoxygenNote: 6.1.1
@@ -22,7 +22,7 @@ Collate:
     'checkClass.R'
     'extract.R'
     'findLoginObjects.R'
-    'fittedDS.R'
+    'getFitted.R'
     'getHistogram.R'
     'getOpals.R'
     'getVarByName.R'
