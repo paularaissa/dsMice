@@ -35,13 +35,16 @@ getFitted <- function(beta, formula) {
   #Formula to calculate the fitted values
   estimated <- 0
   teste <- list()
+  teste2 <- list()
   
   missPosition <- data.matrix(which(is.na(bindxy[,1])))
   for (i in 1:nrow(missPosition)) {
     pos <- missPosition[i]
     teste[i] <- bindxy[pos,2]
-    teste[i] <- cbind(teste[i], bindxy[pos,3])
+    teste2[i] <- bindxy[pos,3]
   }
+  
+  xMiss <- cbind(data.matrix(teste), data.matrix(teste2))
   
   # for(i in 1:nrow(bind.y)) {
   #   if(is.na(bind.y[i])) {
@@ -54,6 +57,6 @@ getFitted <- function(beta, formula) {
   
   # return(data.matrix(teste))
   
-  return(data.matrix(teste))
+  return(xMiss)
   
 }
