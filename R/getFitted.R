@@ -20,17 +20,11 @@
 getFitted <- function(beta, formula) {
   
   #Data transformations
-  if(class(beta)=="character"){
-    beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
-    beta.reg <- data.matrix(beta.reg.aux)
-  } else {
-    beta.reg <- beta
-  }
+  beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
+  beta.reg <- data.matrix(beta.reg.aux)
   
   #Retrive the values and variables x
   bindxy <- dsMice::getVarbyFormula(formula)
-  # bind.x <- data.matrix(bindxy$x)
-  # bind.y <- data.matrix(bindxy$y)
   # 
   #Formula to calculate the fitted values
   estimated <- 0
@@ -45,7 +39,7 @@ getFitted <- function(beta, formula) {
   }
   
   xMiss <- cbind(data.matrix(teste), data.matrix(teste2))
-  estimated <- xMiss %*% beta.reg
+  #estimated <- xMiss %*% beta.reg
   
   # for(i in 1:nrow(bind.y)) {
   #   if(is.na(bind.y[i])) {
@@ -58,6 +52,6 @@ getFitted <- function(beta, formula) {
   
   # return(data.matrix(teste))
   
-  return(estimated)
+  return(list(xMiss, beta.reg))
   
 }
