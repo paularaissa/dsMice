@@ -28,6 +28,8 @@ getVarbyFormula <- function(formula, subset=NULL, weight=NULL, family=NULL) {
   bind.x <- model[-1] * weight
   bind.y <- model[1]
 
-  return(list(x=bind.x, y=bind.y))
+  #return(list(x=bind.x, y=bind.y))
+  
+  return(model)
 
 }

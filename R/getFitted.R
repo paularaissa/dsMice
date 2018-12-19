@@ -29,18 +29,18 @@ getFitted <- function(beta, formula) {
   
   #Retrive the values and variables x
   bindxy <- dsMice::getVarbyFormula(formula)
-  bind.x <- data.matrix(bindxy$x)
-  bind.y <- data.matrix(bindxy$y)
-  
-  #Formula to calculate the fitted values
-  estimated <- 0
-  teste <- c()
-  
-  missPosition <- which(is.na(bind.y))
-  for (pos in missPosition) {
-    estimated <- bind.x[pos,1]
-    teste[[pos]] <- estimated
-  }
+  # bind.x <- data.matrix(bindxy$x)
+  # bind.y <- data.matrix(bindxy$y)
+  # 
+  # #Formula to calculate the fitted values
+  # estimated <- 0
+  # teste <- c()
+  # 
+  # missPosition <- which(is.na(bind.y))
+  # for (pos in missPosition) {
+  #   estimated <- bind.x[pos,1]
+  #   teste[[pos]] <- estimated
+  # }
   
   # for(i in 1:nrow(bind.y)) {
   #   if(is.na(bind.y[i])) {
@@ -51,6 +51,6 @@ getFitted <- function(beta, formula) {
   # y.hat <- bind.x %*% beta.reg
   # row.names(y.hat) <- rowNames
   
-  return(teste)
+  return(bindxy)
   
 }
