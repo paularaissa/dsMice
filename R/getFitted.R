@@ -51,6 +51,8 @@ getFitted <- function(beta, formula) {
   # y.hat <- bind.x %*% beta.reg
   # row.names(y.hat) <- rowNames
   
-  return(data.matrix(teste))
+  # return(data.matrix(teste))
+  
+  return(missPosition)
   
 }
