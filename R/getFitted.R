@@ -44,7 +44,7 @@ getFitted <- function(beta, formula) {
     teste2[i] <- bindxy[pos,3]
   }
   
-  xMiss <- cbind(data.matrix(teste), data.matrix(teste2))
+  xMiss <- cbind(missPosition, data.matrix(teste), data.matrix(teste2))
   
   # for(i in 1:nrow(bind.y)) {
   #   if(is.na(bind.y[i])) {
