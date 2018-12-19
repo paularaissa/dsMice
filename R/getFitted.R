@@ -39,7 +39,7 @@ getFitted <- function(beta, formula) {
   missPosition <- which(is.na(bind.y))
   for (pos in missPosition) {
     estimated <- bind.x[pos,]
-    teste[pos] <- estimated
+    teste[[pos]] <- estimated
   }
   
   # for(i in 1:nrow(bind.y)) {
