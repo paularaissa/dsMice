@@ -44,7 +44,7 @@ getFitted <- function(beta, formula) {
   estimated <- data.frame(estimated, missPosition)
   
   vars <- all.vars(as.formula(formula))
-  histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
+  histogram <- dsMice::getHistogram(paste0("'D$", vars[2],"'"))
   
   return(histogram)
   
