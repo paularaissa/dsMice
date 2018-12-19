@@ -32,6 +32,6 @@ getHistogram <- function(x) {
   #   hist2$freq[i] <- hist$freq[i] - hist$freq[i-1]
   # }
 
-  return(bind.x)
+  return(x)
 
 }
