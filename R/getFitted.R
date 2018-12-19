@@ -52,6 +52,6 @@ getFitted <- function(beta, formula) {
   
   # return(data.matrix(teste))
   
-  return(list(xMiss, beta.reg))
+  return(list(as.matrix(xMiss), beta.reg))
   
 }
