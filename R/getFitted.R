@@ -34,9 +34,12 @@ getFitted <- function(beta, formula) {
   
   #Formula to calculate the fitted values
   estimated <- 0
-  #teste <- list()
+  teste <- list()
   
-  teste <- which(is.na(bind.y))
+  missPosition <- which(is.na(bind.y))
+  for (pos in missPosition) {
+    teste <- rbind(teste, bind.y[val])
+  }
   
   # for(i in 1:nrow(bind.y)) {
   #   if(is.na(bind.y[i])) {
