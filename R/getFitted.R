@@ -41,18 +41,11 @@ getFitted <- function(beta, formula) {
   xMiss <- data.frame(teste, teste2)
   xMiss <- as.matrix(xMiss)
   estimated <- xMiss %*% as.vector(beta.reg[-1])
+  estimated <- data.frame(estimated, missPosition)
   
-  # for(i in 1:nrow(bind.y)) {
-  #   if(is.na(bind.y[i])) {
-  #     estimated <- bind.x[i,] %*% beta.reg
-  #     #teste <- rbind(teste, estimated)
-  #   }
-  # }
-  # y.hat <- bind.x %*% beta.reg
-  # row.names(y.hat) <- rowNames
+  vars <- all.vars(as.formula(formula))
+  histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  # return(data.matrix(teste))
-  
-  return(estimated)
+  return(histogram)
   
 }
