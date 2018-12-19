@@ -40,7 +40,7 @@ getFitted <- function(beta, formula) {
   for (i in 1:nrow(missPosition)) {
     pos <- missPosition[i]
     teste[i] <- bindxy[pos,2]
-    teste[i] <- cbind(teste[1], bindxy[pos,3])
+    teste[i] <- cbind(teste[i], bindxy[pos,3])
   }
   
   # for(i in 1:nrow(bind.y)) {
