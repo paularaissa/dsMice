@@ -15,7 +15,8 @@ AggregateMethods: matrixProductDS,
     getVarByName,
     bindyDS,
     getFitted,
-    getHistogram
+    getHistogram,
+    getNa
 Options: datashield.privacyLevel=1
 RoxygenNote: 6.1.1
 Collate: 
@@ -32,3 +33,4 @@ Collate:
     'isValidDS.R'
     'matrixMethod.R'
     'setFilterDS.R'
+    'getNa.R'
