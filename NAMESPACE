@@ -2,6 +2,7 @@
 
 export(getFitted)
 export(getHistogram)
+export(getNa)
 export(getVarByName)
 export(getVarbyFormula)
 export(isValidDS)

@@ -21,8 +21,8 @@ getNa <- function(formula) {
  
   bindxy <- getVarbyFormula(formula)
   bindxy$ID <- seq.int(nrow(bindxy))
-  naLines <- subset(bindxy, is.na(y)) 
+  #naLines <- subset(bindxy, is.na(y)) 
   
-  return(naLines)
+  return(bindxy)
    
 }
