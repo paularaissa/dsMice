@@ -17,11 +17,17 @@
 #' @export
 #'
 
-getNa <- function(formula) {
+getNa <- function(formula, v1=NULL, v2=NULL) {
  
   bindxy <- getVarbyFormula(formula)
   bindxy$ID <- seq.int(nrow(bindxy))
-  naLines <- subset(bindxy, is.na(bindxy[,1])) 
+  naLines <- subset(bindxy, is.na(bindxy[,1]))
+  if(!is.null(v1)){
+    naLines$imp1 <- naLines[,2] * as.numeric(v1)
+  } 
+  if(!is.null(v2)) {
+    naLines$imp2 <- naLines[,3] * as.numeric(v2)
+  }
   
   return(naLines)
    
