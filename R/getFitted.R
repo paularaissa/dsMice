@@ -50,7 +50,7 @@ getFitted <- function(beta, formula) {
   difList <- list()
   for (value in estimated) {
     dif <- mapply('-', value, xValues)
-    dif5 <- dif[order(dif)[1:5]]
+    dif5 <- xValues[dif[order(dif)[1:5]]]
     #difList[[cont]]
     cont <- cont + 1
   }
