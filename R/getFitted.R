@@ -44,7 +44,7 @@ getFitted <- function(beta, formula) {
   #Formula to compute the estimated values
   xMiss <- as.matrix(xValuesMiss)
   estimated <- xMiss %*% as.vector(beta.reg[-1])
-  dfEstimated <- data.frame(ID=xMiss$ID, estimated=estimated)
+  #dfEstimated <- data.frame(ID=xMiss$ID, estimated=estimated)
     
   # #Difference between estimates and real values
   # cont <- 1
@@ -62,6 +62,6 @@ getFitted <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(dfEstimated)
+  return(estimated)
   
 }
