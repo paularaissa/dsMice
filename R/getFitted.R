@@ -66,6 +66,6 @@ getFitted <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(list(idValor, xValues))
+  return(list(idValor, xValues, valor))
   
 }
