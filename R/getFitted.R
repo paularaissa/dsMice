@@ -48,9 +48,11 @@ getFitted <- function(beta, formula) {
   cont <- 1
   dif <- list()
   for (value in estimated) {
-    dif[[cont]] <- mapply('-', value, xValues)
+    dif[[cont]] <- tail(sort(mapply('-', value, xValues)), 5)
     cont <- cont + 1
   }
+  
+  
   
   
   # estimated <- data.frame(estimated, missPosition)
