@@ -27,7 +27,7 @@ getFitted <- function(beta, formula) {
   bindxy <- dsMice::getNa(formula)
   vars <- all.vars(formula)
   formatedVars <- paste0(vars[1], "$", vars[2:length(vars)])
-  xValues <- subset(bindxy, formatedVars[-1])
+  xValues <- subset(x=bindxy, select=formatedVars[-1])
   #Formula to calculate the fitted values
   # estimated <- 0
   # xMiss <- as.matrix(xMiss)
