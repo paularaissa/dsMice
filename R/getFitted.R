@@ -57,7 +57,7 @@ getFitted <- function(beta, formula) {
      matching <- match(randomValue, subtract$dif)
      names <- rownames(subtract) #search the corresponding rowname
      idValor <- names[matching]
-     valor <- xValues[paste0("'",idValor,"'"), ]
+     valor <- xValues[idValor, ]
      break()
   }
   
