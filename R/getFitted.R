@@ -48,8 +48,15 @@ getFitted <- function(beta, formula) {
   cont <- 1
   dif <- list()
   for (value in estimated) {
-    dif[[cont]] <- tail(sort(mapply('-', value, xValues)), 5)
+    dif[[cont]] <- mapply('-', value, xValues)
     cont <- cont + 1
+  }
+  
+  cont2 <- 1
+  mindif <- list()
+  for(df in dif) {
+    mindif[cont] <- sapply(df, min, na.rm=TRUE)
+    cont2 <- cont2 + 1
   }
   
   
@@ -60,6 +67,6 @@ getFitted <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(dif)
+  return(mindif)
   
 }
