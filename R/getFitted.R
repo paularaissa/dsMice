@@ -25,18 +25,39 @@ getFitted <- function(beta, formula) {
   
   #Retrive the values and variables x
   bindxy <- dsMice::getNa(formula)
+  
+  bindxy <- getVarbyFormula(formula)
+  bindxy$ID <- seq.int(nrow(bindxy))
+  naLines <- subset(bindxy, is.na(bindxy[,1]))
+  
+  #Format variables
   vars <- all.vars(formula)
   formatedVars <- paste0(vars[1], "$", vars[2:length(vars)])
+  
+  #Select subset of missing data
+  xValuesMiss <- subset(x=naLines, select=formatedVars[-1])
+  
+  #Select subset of xValues
   xValues <- subset(x=bindxy, select=formatedVars[-1])
-  #Formula to calculate the fitted values
-  # estimated <- 0
-  xMiss <- as.matrix(xValues)
+  
+  #Formula to compute the fitted values
+  xMiss <- as.matrix(xValuesMiss)
   estimated <- xMiss %*% as.vector(beta.reg[-1])
+  
+  #Difference between estimates
+  cont <- 1
+  dif <- list()
+  for (value in estimated) {
+    dif[[cont]] <- mapply('-', value, xValues)
+    cont <- cont + 1
+  }
+  
+  
   # estimated <- data.frame(estimated, missPosition)
   # 
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(estimated)
+  return(dif)
   
 }
