@@ -30,8 +30,8 @@ getFitted <- function(beta, formula) {
   xValues <- subset(x=bindxy, select=formatedVars[-1])
   #Formula to calculate the fitted values
   # estimated <- 0
-  # xMiss <- as.matrix(xMiss)
-  estimated <- xValues %*% as.vector(beta.reg[-1])
+  xMiss <- as.matrix(xValues)
+  estimated <- xMiss %*% as.vector(beta.reg[-1])
   # estimated <- data.frame(estimated, missPosition)
   # 
   # vars <- all.vars(as.formula(formula))
