@@ -48,18 +48,18 @@ getFitted <- function(beta, formula) {
   # #Difference between estimates and real values
   cont <- 1
   dfDif <- list()
-  # for (value in estimated) {
-  #   subtract <- mapply('-', value, xValues)
-  #   dfDif <- dif[order(dif)[1:5]]
-  #   #difList[[cont]]
-  #   cont <- cont + 1
-  # }
+  for (value in estimated) {
+     subtract <- data.frame(mapply('-', value, xValues))
+     # dfDif <- dif[order(dif)[1:5]]
+     # #difList[[cont]]
+     # cont <- cont + 1
+  }
   
   # estimated <- data.frame(estimated, missPosition)
   # 
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(xValues)
+  return(subtract)
   
 }
