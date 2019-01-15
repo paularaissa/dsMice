@@ -47,7 +47,7 @@ getFitted <- function(beta, formula) {
     
   # #Difference between estimates and real values
   cont <- 1
-  dfDif <- list()
+  imputedValues <- list()
   for (value in estimated) {
      subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames 
      colnames(subtract) <- "dif"
@@ -58,14 +58,16 @@ getFitted <- function(beta, formula) {
      names <- rownames(subtract) #search the corresponding rowname
      idValor <- names[matching]
      valor <- xValues[idValor, ]
-     break()
+     imputedValues[cont] <- valor
   }
+  imputedValues <- as.data.frame(imputedValues)
+  rownames(imputedValues) <- rownames(naLines)
   
   # estimated <- data.frame(estimated, missPosition)
   # 
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(list(idValor, xValues, valor))
+  return(imputedValues)
   
 }
