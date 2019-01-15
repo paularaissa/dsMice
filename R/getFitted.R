@@ -24,28 +24,17 @@ getFitted <- function(beta, formula) {
   beta.reg <- data.matrix(beta.reg.aux)
   
   #Retrive the values and variables x
-  bindxy <- dsMice::getVarbyFormula(formula)
+  bindxy <- dsMice::getNa(formula)
   # 
   #Formula to calculate the fitted values
-  estimated <- 0
-  teste <- c()
-  teste2 <- c()
+  # estimated <- 0
+  # xMiss <- as.matrix(xMiss)
+  # estimated <- xMiss %*% as.vector(beta.reg[-1])
+  # estimated <- data.frame(estimated, missPosition)
+  # 
+  # vars <- all.vars(as.formula(formula))
+  # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  missPosition <- data.matrix(which(is.na(bindxy[,1])))
-  for (i in 1:nrow(missPosition)) {
-    pos <- missPosition[i]
-    teste[i] <- bindxy[pos,2]
-    teste2[i] <- bindxy[pos,3]
-  }
-  
-  xMiss <- data.frame(teste, teste2)
-  xMiss <- as.matrix(xMiss)
-  estimated <- xMiss %*% as.vector(beta.reg[-1])
-  estimated <- data.frame(estimated, missPosition)
-  
-  vars <- all.vars(as.formula(formula))
-  histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
-  
-  return(histogram)
+  return(bindxy)
   
 }

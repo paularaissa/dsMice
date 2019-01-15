@@ -4,7 +4,7 @@
 \alias{getNa}
 \title{Partial Computation for Model Fitted Values}
 \usage{
-getNa(formula)
+getNa(formula, v1 = NULL, v2 = NULL)
 }
 \arguments{
 \item{formula}{a string character to be transformed as an object of class \code{formula}.}
