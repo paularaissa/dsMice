@@ -27,7 +27,7 @@ getFitted <- function(beta, formula) {
   bindxy <- dsMice::getNa(formula)
   vars <- all.vars(formula)
   formatedVars <- paste0(vars[1], "$", vars[2:length(vars)])
-  #xValues <- subset(vars, select=vars[-1])
+  xValues <- subset(bindxy, formatedVars[-1])
   #Formula to calculate the fitted values
   # estimated <- 0
   # xMiss <- as.matrix(xMiss)
@@ -37,6 +37,6 @@ getFitted <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(formatedVars)
+  return(xValues)
   
 }
