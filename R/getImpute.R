@@ -17,7 +17,7 @@
 #' @export
 #'
 
-getFitted <- function(beta, formula) {
+getImpute <- function(beta, formula) {
   
   #Data transformations
   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))

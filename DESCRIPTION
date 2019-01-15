@@ -14,7 +14,7 @@ AggregateMethods: matrixProductDS,
     isValidDS,
     getVarByName,
     bindyDS,
-    getFitted,
+    getImpute,
     getHistogram,
     getNa
 Options: datashield.privacyLevel=1
@@ -23,7 +23,7 @@ Collate:
     'checkClass.R'
     'extract.R'
     'findLoginObjects.R'
-    'getFitted.R'
+    'getImpute.R'
     'getHistogram.R'
     'getOpals.R'
     'getVarByName.R'
