@@ -49,12 +49,15 @@ getFitted <- function(beta, formula) {
   cont <- 1
   dfDif <- list()
   for (value in estimated) {
-     subtract <- data.frame(mapply('-', value, xValues))
+     subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames 
      colnames(subtract) <- "dif"
      rownames(subtract) <- rownames(xValues)
-     #dfDif <- subtract[order(dif),]
-     # #difList[[cont]]
-     # cont <- cont + 1
+     top5 <- subtract[order(subtract$dif)[1:5],]
+     randomValue <- sample(top5, 1)
+     matching <- match(randomValue, subtract$dif)
+     names <- rownames(subtract) #search the corresponding rowname
+     idValor <- names[matching]
+     valor <- xValues[paste0("'",idValor,"'"), ]
      break()
   }
   
@@ -63,6 +66,6 @@ getFitted <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(subtract)
+  return(valor)
   
 }
