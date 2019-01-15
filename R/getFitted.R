@@ -39,6 +39,7 @@ getFitted <- function(beta, formula) {
   
   #Select subset of xValues
   xValues <- unique(subset(x=bindxy, select=formatedVars[-1]))
+  xValues <- xValues[!is.na(xValues)] 
   
   #Formula to compute the estimated values
   xMiss <- as.matrix(xValuesMiss)
