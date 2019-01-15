@@ -51,7 +51,7 @@ getFitted <- function(beta, formula) {
   for (value in estimated) {
      subtract <- data.frame(mapply('-', value, xValues))
      rownames(subtract) <- rownames(xValues)
-     dfDif <- dif[order(dif)[1:5]]
+     dfDif <- subtract[order(subtract)[1:5]]
      # #difList[[cont]]
      # cont <- cont + 1
      break()
