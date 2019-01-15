@@ -50,7 +50,7 @@ getFitted <- function(beta, formula) {
   difList <- list()
   for (value in estimated) {
     dif <- mapply('-', value, xValues)
-    #dif5 <- 
+    dif5 <- dif[order(dif)[1:5]]
     #difList[[cont]]
     cont <- cont + 1
   }
@@ -60,6 +60,6 @@ getFitted <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(dif)
+  return(dif5)
   
 }
