@@ -51,7 +51,7 @@ getFitted <- function(beta, formula) {
   for (value in estimated) {
      subtract <- data.frame(mapply('-', value, xValues))
      rownames(subtract) <- rownames(xValues)
-     # dfDif <- dif[order(dif)[1:5]]
+     dfDif <- dif[order(dif)[1:5]]
      # #difList[[cont]]
      # cont <- cont + 1
      break()
@@ -62,6 +62,6 @@ getFitted <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(list(subtract, estimated, xValues))
+  return(dfDif)
   
 }
