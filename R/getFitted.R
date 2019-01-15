@@ -61,8 +61,8 @@ getFitted <- function(beta, formula) {
      imputedValues[cont] <- valor
      cont <- cont + 1
   }
-  #imputedValues <- as.data.frame(imputedValues)
-  #rownames(imputedValues) <- rownames(naLines)
+  imputedValues <- as.data.frame(imputedValues)
+  rownames(imputedValues) <- rownames(naLines)
   
   # estimated <- data.frame(estimated, missPosition)
   # 
