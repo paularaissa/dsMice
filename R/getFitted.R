@@ -31,12 +31,12 @@ getFitted <- function(beta, formula) {
   #Formula to calculate the fitted values
   # estimated <- 0
   # xMiss <- as.matrix(xMiss)
-  # estimated <- xMiss %*% as.vector(beta.reg[-1])
+  estimated <- xValues %*% as.vector(beta.reg[-1])
   # estimated <- data.frame(estimated, missPosition)
   # 
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   
-  return(xValues)
+  return(estimated)
   
 }
