@@ -47,7 +47,7 @@ getFitted <- function(beta, formula) {
     
   # #Difference between estimates and real values
   cont <- 1
-  imputedValues <- list()
+  imputedValues <- c()
   for (value in estimated) {
      subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames 
      colnames(subtract) <- "dif"
