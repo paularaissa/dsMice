@@ -286,7 +286,7 @@ miceDS <- function(datasource, m = 5,
   # x.data.frame <- data.frame(x.vars)
   # 
   datatext <- paste0("data.frame(",datasource,")")
-  #dataset <- eval(parse(text=datatext))
+  dataset <- eval(parse(text=datatext))
   
-  return(datatext)
+  return(dataset)
 }
