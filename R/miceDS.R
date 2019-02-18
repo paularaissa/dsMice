@@ -275,8 +275,9 @@ miceDS <- function(data, m = 5,
   #if (!is.na(seed)) set.seed(seed)
   
   # check form of data and m
-  data <- check.dataform(data)
-  m <- check.m(m)
+  #data <- check.dataform(data)
+  dataset <- opal::opal.assign(data)
+  #m <- check.m(m)
   
-  return(data)
+  return(dataset)
 }
