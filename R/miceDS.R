@@ -256,19 +256,7 @@
 #'
 #'
 
-miceDS <- function(datasource, m = 5, 
-                    method = NULL,
-                    predictorMatrix = NULL,
-                    where = NULL,
-                    blocks = NULL,
-                    visitSequence = NULL,
-                    formulas = NULL,
-                    blots = NULL,
-                    post = NULL,
-                    defaultMethod = c("pmm", "logreg", "polyreg", "polr"),
-                    maxit = 5, printFlag = TRUE, seed = NA,
-                    data.init = NULL,
-                    ...) {
+miceDS <- function(datasource) {
   
   #call <- match.call()
   #check.deprecated(...)
