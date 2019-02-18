@@ -285,5 +285,8 @@ miceDS <- function(datasource, m = 5,
   # }
   # x.data.frame <- data.frame(x.vars)
   # 
-  return(datasource)
+  
+  teste <- eval(parse(text=datasource))
+  
+  return(teste)
 }
