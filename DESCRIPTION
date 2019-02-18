@@ -16,7 +16,8 @@ AggregateMethods: matrixProductDS,
     bindyDS,
     getImpute,
     getHistogram,
-    getNa
+    getNa, 
+    miceDS
 Options: datashield.privacyLevel=1
 RoxygenNote: 6.1.1
 Collate: 
@@ -34,3 +35,6 @@ Collate:
     'matrixMethod.R'
     'setFilterDS.R'
     'getNa.R'
+    'miceDS.R'
+    'check.dataform.R'
+    'check.m.R'
