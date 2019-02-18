@@ -4,16 +4,13 @@
 \alias{miceDS}
 \title{Multivariate Imputation by Chained Equations (MICE)}
 \usage{
-miceDS(data, m = 5, method = NULL, predictorMatrix = NULL,
+miceDS(datasource, m = 5, method = NULL, predictorMatrix = NULL,
   where = NULL, blocks = NULL, visitSequence = NULL,
   formulas = NULL, blots = NULL, post = NULL,
   defaultMethod = c("pmm", "logreg", "polyreg", "polr"), maxit = 5,
   printFlag = TRUE, seed = NA, data.init = NULL, ...)
 }
 \arguments{
-\item{data}{A data frame or a matrix containing the incomplete data.  Missing
-values are coded as \code{NA}.}
-
 \item{m}{Number of multiple imputations. The default is \code{m=5}.}
 
 \item{method}{Can be either a single string, or a vector of strings with
@@ -111,6 +108,9 @@ imputation.}
 
 \item{...}{Named arguments that are passed down to the univariate imputation
 functions.}
+
+\item{data}{A data frame or a matrix containing the incomplete data.  Missing
+values are coded as \code{NA}.}
 }
 \value{
 Returns an S3 object of class \code{\link[=mids-class]{mids}}

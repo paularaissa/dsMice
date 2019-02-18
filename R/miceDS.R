@@ -256,7 +256,7 @@
 #'
 #'
 
-miceDS <- function(data, m = 5, 
+miceDS <- function(datasource, m = 5, 
                     method = NULL,
                     predictorMatrix = NULL,
                     where = NULL,
@@ -276,8 +276,14 @@ miceDS <- function(data, m = 5,
   
   # check form of data and m
   #data <- check.dataform(data)
-  dataset <- opal::opal.assign(data)
+  #dataset <- opal::opal.assign(data)
   #m <- check.m(m)
   
-  return(dataset)
+  # for (j in 1:length(model.variables)) {
+  #   x.vars.aux[[j]] <- as.numeric(eval(parse(text=model.variables[j])))
+  #   x.vars <- cbind(x.vars, x.vars.aux[[j]])
+  # }
+  # x.data.frame <- data.frame(x.vars)
+  # 
+  return(datasource)
 }
