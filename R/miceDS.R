@@ -287,5 +287,5 @@ miceDS <- function(datasource, m = 5,
   # 
   #dataset <- eval(parse(text=datasource))
   
-  return("dataset")
+  return(datasource)
 }
