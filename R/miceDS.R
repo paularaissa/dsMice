@@ -267,8 +267,7 @@ miceDS <- function(datasource, m = 5,
                     post = NULL,
                     defaultMethod = c("pmm", "logreg", "polyreg", "polr"),
                     maxit = 5, printFlag = TRUE, seed = NA,
-                    data.init = NULL,
-                    ...) {
+                    data.init = NULL) {
   
   #call <- match.call()
   #check.deprecated(...)
@@ -286,9 +285,9 @@ miceDS <- function(datasource, m = 5,
   # x.data.frame <- data.frame(x.vars)
   # 
   
-  teste <- as.numeric(eval(parse(text="length")))
+  #teste <- as.numeric(eval(parse(text="length")))
   
   #dataset <- eval(parse(text="length"))
   
-  return(teste)
+  return(datasource)
 }

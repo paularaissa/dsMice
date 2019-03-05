@@ -8,7 +8,7 @@ miceDS(datasource, m = 5, method = NULL, predictorMatrix = NULL,
   where = NULL, blocks = NULL, visitSequence = NULL,
   formulas = NULL, blots = NULL, post = NULL,
   defaultMethod = c("pmm", "logreg", "polyreg", "polr"), maxit = 5,
-  printFlag = TRUE, seed = NA, data.init = NULL, ...)
+  printFlag = TRUE, seed = NA, data.init = NULL)
 }
 \arguments{
 \item{m}{Number of multiple imputations. The default is \code{m=5}.}
@@ -106,11 +106,11 @@ are created by a simple random draw from the data. Note that specification of
 \code{data.init} will start all \code{m} Gibbs sampling streams from the same
 imputation.}
 
-\item{...}{Named arguments that are passed down to the univariate imputation
-functions.}
-
 \item{data}{A data frame or a matrix containing the incomplete data.  Missing
 values are coded as \code{NA}.}
+
+\item{...}{Named arguments that are passed down to the univariate imputation
+functions.}
 }
 \value{
 Returns an S3 object of class \code{\link[=mids-class]{mids}}
