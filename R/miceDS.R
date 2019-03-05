@@ -285,7 +285,7 @@ miceDS <- function(datasource, m = 5,
   # x.data.frame <- data.frame(x.vars)
   # 
   
-  teste <- eval(parse(text="D$diameter"))
+  teste <- eval(parse(text="D"))
   
   #dataset <- eval(parse(text="length"))
   
