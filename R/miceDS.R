@@ -286,7 +286,9 @@ miceDS <- function(datasource, m = 5,
   # x.data.frame <- data.frame(x.vars)
   # 
   
-  dataset <- eval(parse(text="length"))
+  teste <- as.numeric(eval(parse(text="length")))
   
-  return(dataset)
+  #dataset <- eval(parse(text="length"))
+  
+  return(teste)
 }
