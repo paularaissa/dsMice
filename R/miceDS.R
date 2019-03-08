@@ -288,9 +288,7 @@ miceDS <- function(datasource, m = 5,
     # blocks lead
     blocks <- make.blocksDS(colnames(data))
     predictorMatrix <- make.predictorMatrixDS(data, blocks)
-    formulas <- make.formulasDS(data, blocks)
-    #return(blocks)
   }
   
-  return(formulas)
+  return(list(blocks=blocks, predictorMatrix=predictorMatrix))
 }
