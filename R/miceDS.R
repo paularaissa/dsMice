@@ -287,10 +287,10 @@ miceDS <- function(datasource, m = 5,
   if (mp & mb & mf) {
     # blocks lead
     blocks <- make.blocksDS(colnames(data))
-    #predictorMatrix <- make.predictorMatrix(data, blocks)
+    predictorMatrix <- make.predictorMatrixDS(data, blocks)
     #formulas <- make.formulas(data, blocks)
-    return(blocks)
+    #return(blocks)
   }
   
-  #return(blocks)
+  return(predictorMatrix)
 }
