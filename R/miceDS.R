@@ -274,13 +274,10 @@ miceDS <- function(datasource, m = 5,
   if (!is.na(seed)) set.seed(seed)
   
   # check form of data and m
-  #data <- check.dataform(data)
-  #dataset <- opal::opal.assign(data)
-  #m <- check.m(m)
+  data <- eval(parse(text="D"))
+  data <- check.dataform(data)
+  m <- check.m(m)
+
   
-  dataset <- eval(parse(text="D"))
-  
-  #dataset <- eval(parse(text="length"))
-  
-  return(teste)
+  return(data)
 }
