@@ -271,21 +271,14 @@ miceDS <- function(datasource, m = 5,
   
   #call <- match.call()
   #check.deprecated(...)
-  #if (!is.na(seed)) set.seed(seed)
+  if (!is.na(seed)) set.seed(seed)
   
   # check form of data and m
   #data <- check.dataform(data)
   #dataset <- opal::opal.assign(data)
   #m <- check.m(m)
   
-  # for (j in 1:length(model.variables)) {
-  #   x.vars.aux[[j]] <- as.numeric(eval(parse(text=model.variables[j])))
-  #   x.vars <- cbind(x.vars, x.vars.aux[[j]])
-  # }
-  # x.data.frame <- data.frame(x.vars)
-  # 
-  
-  teste <- eval(parse(text="D"))
+  dataset <- eval(parse(text="D"))
   
   #dataset <- eval(parse(text="length"))
   
