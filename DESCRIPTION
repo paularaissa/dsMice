@@ -38,3 +38,5 @@ Collate:
     'miceDS.R'
     'check.dataform.R'
     'check.m.R'
+    'check.predictorMatrixDS.R'
+    'make.predictorMatrixDS.R'

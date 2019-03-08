@@ -278,6 +278,10 @@ miceDS <- function(datasource, m = 5,
   data <- check.dataform(data)
   m <- check.m(m)
 
+  # determine input combination: predictorMatrix, blocks, formulas
+  mp <- missing(predictorMatrix)
+  #mb <- missing(blocks)
+  #mf <- missing(formulas)
   
-  return(data)
+  return(mp)
 }
