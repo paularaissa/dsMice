@@ -44,3 +44,7 @@ Collate:
     'construct.blocksDS.R'
     'make.blocksDS.R'
     'name.blocksDS.R'
+    'check.formulasDS.R'
+    'extend.formulaDS.R'
+    'extend.formulasDS.R'
+    'make.formulaDS.R'
