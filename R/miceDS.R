@@ -280,8 +280,16 @@ miceDS <- function(datasource, m = 5,
 
   # determine input combination: predictorMatrix, blocks, formulas
   mp <- missing(predictorMatrix)
-  #mb <- missing(blocks)
-  #mf <- missing(formulas)
+  mb <- missing(blocks)
+  mf <- missing(formulas)
+  
+  # case A
+  if (mp & mb & mf) {
+    # blocks lead
+    blocks <- make.blocks(colnames(data))
+    predictorMatrix <- make.predictorMatrix(data, blocks)
+    formulas <- make.formulas(data, blocks)
+  }
   
   return(mp)
 }

@@ -40,3 +40,7 @@ Collate:
     'check.m.R'
     'check.predictorMatrixDS.R'
     'make.predictorMatrixDS.R'
+    'check.blocksDS.R'
+    'construct.blocksDS.R'
+    'make.blocksDS.R'
+    'name.blocksDS.R'
