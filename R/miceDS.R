@@ -256,7 +256,7 @@
 #'
 #'
 
-miceDS <- function(datasource, m = 5, 
+miceDS <- function(vars, m = 5, 
                     method = NULL,
                     predictorMatrix = NULL,
                     where = NULL,
@@ -274,7 +274,13 @@ miceDS <- function(datasource, m = 5,
   if (!is.na(seed)) set.seed(seed)
   
   # check form of data and m
-  data <- eval(parse(text="D"))
+  
+  if(!is.null(vars)){
+    data <- getVarByName(vars)
+  } else {
+    data <- eval(parse(text="D")) 
+  }
+  
   data <- check.dataform(data)
   m <- check.m(m)
 
