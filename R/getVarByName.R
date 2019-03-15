@@ -16,9 +16,10 @@ getVarByName <- function(x) {
   x.vars <- list()
 
   for (j in 1:length(model.variables)) {
-    x.vars.aux[[j]] <- as.numeric(eval(parse(text=model.variables[j])))
+    x.vars.aux[[j]] <- eval(parse(text=model.variables[j]))
     x.vars <- cbind(x.vars, x.vars.aux[[j]])
   }
+  colnames(x.vars) <- model.variables
   #x.data.frame <- data.frame(x.vars)
 
   #bind.x <- data.matrix(x.data.frame)
