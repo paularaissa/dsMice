@@ -20,9 +20,6 @@ getVarByName <- function(x) {
     x.vars <- cbind(x.vars, x.vars.aux[[j]])
   }
   colnames(x.vars) <- model.variables
-  #x.data.frame <- data.frame(x.vars)
-
-  #bind.x <- data.matrix(x.data.frame)
 
   return(x.vars)
 

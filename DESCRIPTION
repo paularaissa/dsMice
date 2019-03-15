@@ -17,7 +17,8 @@ AggregateMethods: matrixProductDS,
     getImpute,
     getHistogram,
     getNa, 
-    miceDS
+    miceDS,
+    identifyNas
 Options: datashield.privacyLevel=1
 RoxygenNote: 6.1.1
 Collate: 
@@ -44,3 +45,6 @@ Collate:
     'construct.blocksDS.R'
     'make.blocksDS.R'
     'name.blocksDS.R'
+    'make.visitSequence.R'
+    'check.visitSequence.R'
+    'identifyNas.R'
