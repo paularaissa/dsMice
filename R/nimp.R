@@ -15,9 +15,9 @@
 #' 
 #' # user-defined blocks
 #' 
-nimp <- function() {
+nimp <- function(vars=NULL) {
   
-  where <- identifyNas()$nas
+  where <- identifyNas(vars)$nas
   blocks <- make.blocksDS(where)
   nwhere <- apply(where, 2, sum)
   nimp <- vector("integer", length = length(blocks))

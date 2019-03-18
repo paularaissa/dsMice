@@ -4,7 +4,7 @@
 \alias{identifyNas}
 \title{Identify missing values}
 \usage{
-identifyNas()
+identifyNas(vars = NULL)
 }
 \value{
 the variables names with missing values.

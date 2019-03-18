@@ -4,7 +4,7 @@
 \alias{nimp}
 \title{Number of imputations per block}
 \usage{
-nimp()
+nimp(vars = NULL)
 }
 \value{
 A numeric vector of length \code{length(blocks)} containing

@@ -10,9 +10,13 @@
 #' @export
 #
 
-identifyNas <- function() {
+identifyNas <- function(vars=NULL) {
   
-  dataset <- eval(parse(text="D"))
+  if(is.null(vars)) {
+    dataset <- eval(parse(text="D"))
+  } else {
+    dataset <- getVarByName(vars)
+  }
   sums <- colSums(is.na(dataset))
   naCols <- names(which(sums!=0))
   nas <- is.na(dataset)
