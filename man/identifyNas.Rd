@@ -4,7 +4,7 @@
 \alias{identifyNas}
 \title{Partial Computation for Model Fitted Values}
 \usage{
-identifyNas(datasource)
+identifyNas()
 }
 \arguments{
 \item{beta}{is a list of the regression coefficients.}

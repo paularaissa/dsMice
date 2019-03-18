@@ -17,12 +17,12 @@
 #' @export
 #
 
-identifyNas <- function(datasource) {
+identifyNas <- function() {
   
   data <- eval(parse(text="D"))
-  sums <- colSums(is.na(data))
-  naCols <- names(which(sums!=0))
+  #sums <- colSums(is.na(data))
+  #naCols <- names(which(sums!=0))
   
-  return(naCols)
+  return(data)
   
 }
