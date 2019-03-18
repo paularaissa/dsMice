@@ -1,28 +1,21 @@
 #'
-#' @title Partial Computation for Model Fitted Values
-#' @description Calculates the fitted values in each data node.
-#' @details Considering \code{y} as a response variable and x as study variable, the fitted values are the y-values that
-#' would expect for the given x-values according to the best-fitting straight line.
+#' @title Identify missing values
+#' @description ...
+#' @details ...
 #'
-#' @param beta is a list of the regression coefficients.
-#' @param formula a string character to be transformed as an object of class \code{formula}.
-#' @param x is a study variable.
+#' @return the variables names with missing values.
 #'
-#' @return a vector of fitted values.
 #'
-#' @section Dependencies:
-#' \code{\link{getVarbyFormula}}
-#'
-#' @author Paula R. Costa e Silva
+#' @author Paula Silva, Rui Camacho
 #' @export
 #
 
 identifyNas <- function() {
   
-  data <- eval(parse(text="D"))
+  dataset <- eval(parse(text="D"))
   #sums <- colSums(is.na(data))
   #naCols <- names(which(sums!=0))
   
-  return(data)
+  return(dataset)
   
 }
