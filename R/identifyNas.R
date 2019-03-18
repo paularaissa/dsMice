@@ -14,8 +14,8 @@ identifyNas <- function() {
   
   dataset <- eval(parse(text="D"))
   sums <- colSums(is.na(dataset))
-  #naCols <- names(which(sums!=0))
+  naCols <- names(which(sums!=0))
   
-  return(sums)
+  return(naCols)
   
 }
