@@ -57,13 +57,13 @@ md.patternDS <- function(x=NULL, plot = TRUE, rotate.names = FALSE){
   R <- is.na(x)
   nmis <- colSums(R)
   R <- matrix(R[, order(nmis)], dim(x)) #sort columnwise
-  # pat <- apply(R, 1, function(x) paste(as.numeric(x), collapse=''))
-  # sortR <- matrix(R[order(pat), ], dim(x)) #sort rowwise
-  # if (nrow(x) == 1){
-  #   mpat <- is.na(x)
-  # } else {
-  #   mpat <- sortR[!duplicated(sortR), ]
-  # }
+  pat <- apply(R, 1, function(x) paste(as.numeric(x), collapse=''))
+  sortR <- matrix(R[order(pat), ], dim(x)) #sort rowwise
+  if (nrow(x) == 1){
+    mpat <- is.na(x)
+  } else {
+    mpat <- sortR[!duplicated(sortR), ]
+  }
   # #update row and column margins
   # if (all(!is.na(x))){
   #   cat(" /\\     /\\\n{  `---'  }\n{  O   O  }\n==>  V <==") 
@@ -80,7 +80,7 @@ md.patternDS <- function(x=NULL, plot = TRUE, rotate.names = FALSE){
   # r <- cbind(abs(mpat - 1), rowSums(mpat))
   # r <- rbind(r, c(nmis[order(nmis)], sum(nmis)))
   
-  return(R)
+  return(mpat)
   
   # if (plot){ #add plot
   #   plot.new()
