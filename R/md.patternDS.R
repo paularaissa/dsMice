@@ -80,6 +80,8 @@ md.patternDS <- function(x=NULL, plot = TRUE, rotate.names = FALSE){
   r <- cbind(abs(mpat - 1), rowSums(mpat))
   r <- rbind(r, c(nmis[order(nmis)], sum(nmis)))
 
+  r <- r[ , order(colnames(r))]
+  
   return(r)
   
   # if (plot){ #add plot
