@@ -45,7 +45,7 @@
 #'@export
 #'
 #'
-md.pattern <- function(x=NULL, plot = TRUE, rotate.names = FALSE){
+md.patternDS <- function(x=NULL, plot = TRUE, rotate.names = FALSE){
   if (is.null(x)) {
     x <- eval(parse(text="D")) 
   }
