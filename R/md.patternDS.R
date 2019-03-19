@@ -65,22 +65,22 @@ md.patternDS <- function(x=NULL, plot = TRUE, rotate.names = FALSE){
     mpat <- sortR[!duplicated(sortR), ]
   }
   # #update row and column margins
-  # if (all(!is.na(x))){
-  #   cat(" /\\     /\\\n{  `---'  }\n{  O   O  }\n==>  V <==") 
-  #   cat("  No need for mice. This data set is completely observed.\n")
-  #   cat(" \\  \\|/  /\n  `-----'\n\n")
-  #   mpat <- t(as.matrix(mpat, byrow = TRUE))
-  #   rownames(mpat) <- table(pat)
-  # } else {
-  #   if(is.null(dim(mpat))){
-  #     mpat <- t(as.matrix(mpat))
-  #   }
-  #   rownames(mpat) <- table(pat)
-  # }
-  # r <- cbind(abs(mpat - 1), rowSums(mpat))
-  # r <- rbind(r, c(nmis[order(nmis)], sum(nmis)))
-  
-  return(mpat)
+  if (all(!is.na(x))){
+    cat(" /\\     /\\\n{  `---'  }\n{  O   O  }\n==>  V <==")
+    cat("  No need for mice. This data set is completely observed.\n")
+    cat(" \\  \\|/  /\n  `-----'\n\n")
+    mpat <- t(as.matrix(mpat, byrow = TRUE))
+    rownames(mpat) <- table(pat)
+  } else {
+    if(is.null(dim(mpat))){
+      mpat <- t(as.matrix(mpat))
+    }
+    rownames(mpat) <- table(pat)
+  }
+  r <- cbind(abs(mpat - 1), rowSums(mpat))
+  r <- rbind(r, c(nmis[order(nmis)], sum(nmis)))
+
+  return(r)
   
   # if (plot){ #add plot
   #   plot.new()
