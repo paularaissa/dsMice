@@ -55,7 +55,7 @@ getImpute <- function(beta, formula) {
   imputedValues <- c()
   for (value in estimated) {
      subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames
-     # colnames(subtract) <- "dif"
+     colnames(subtract) <- "dif"
      # rownames(subtract) <- rownames(xValues)
      # top5 <- subtract[order(subtract$dif)[1:5],]
      # randomValue <- sample(top5, 1)
