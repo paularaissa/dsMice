@@ -24,6 +24,7 @@ identifyNas <- function(vars=NULL) {
   
   data.nas <- as.data.frame(dataset[,naCols])
   data.complete <- as.data.frame(dataset[,completeCols])
+  colnames(data.complete) <- completeCols
   
   return(list(naCols=naCols, nas=nas, complete=completeCols, data.nas=data.nas, data.complete=data.complete))
   
