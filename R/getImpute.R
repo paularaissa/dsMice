@@ -71,7 +71,7 @@ getImpute <- function(beta, formula) {
      
   }
   imputedValues <- as.data.frame(imputedValues)
-  rownames(imputedValues) <- rownames(naLines)
+  rownames(imputedValues) <- naLines
 
   # estimated <- data.frame(estimated, missPosition)
   #

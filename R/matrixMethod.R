@@ -34,13 +34,13 @@
 #'
 
 matrixMethod <- function(formula, subset=NULL, weight=1, family=NULL) {
-  bindxy <- getVarbyFormula(formula, subset, weight, family)
-
-  bind.x <- data.matrix(na.exclude(bindxy$x))
-  bind.y <- data.matrix(bindxy$y)
-
-  xtx <- t(bind.x) %*% bind.x
-  #xty <- t(bind.x) %*% bind.y
+  # bindxy <- getVarbyFormula(formula, subset, weight, family)
+  # 
+  # bind.x <- data.matrix(na.exclude(bindxy$x))
+  # bind.y <- data.matrix(bindxy$y)
+  # 
+  # xtx <- t(bind.x) %*% bind.x
+  # #xty <- t(bind.x) %*% bind.y
   
   return(bindxy$y)
   
