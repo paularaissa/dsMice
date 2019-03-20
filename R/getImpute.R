@@ -70,15 +70,14 @@ getImpute <- function(beta, formula) {
      cont <- cont + 1
      
   }
-  return(imputedValues)
-  #imputedValues <- as.data.frame(imputedValues)
-  #rownames(imputedValues) <- rownames(naLines)
+  imputedValues <- as.data.frame(imputedValues)
+  rownames(imputedValues) <- rownames(naLines)
 
   # estimated <- data.frame(estimated, missPosition)
   #
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  
+  return(imputedValues)
   
 }
