@@ -17,9 +17,13 @@ identifyNas <- function(vars=NULL) {
   } else {
     dataset <- getVarByName(vars)
   }
-  sums <- colSums(is.na(dataset))
-  naCols <- names(which(sums!=0))
-  completeCols <- names(which(sums==0))
+  col.sums <- colSums(is.na(dataset))
+  row.sums <- rowSums(is.na(dataset))
+  
+  na.rows <- names(which(row.sums!=0))
+  
+  naCols <- names(which(col.sums!=0))
+  completeCols <- names(which(col.sums==0))
   nas <- is.na(dataset)
   
   data.nas <- as.data.frame(dataset[,naCols])
@@ -27,6 +31,6 @@ identifyNas <- function(vars=NULL) {
   colnames(data.complete) <- completeCols
   rownames(data.complete) <- rownames(dataset)
   
-  return(list(naCols=naCols, nas=nas, complete=completeCols, data.nas=data.nas, data.complete=data.complete))
+  return(list(naCols=naCols, nas=nas, complete=completeCols, data.nas=data.nas, data.complete=data.complete, na.rows=na.rows))
   
 }
