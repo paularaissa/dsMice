@@ -22,9 +22,9 @@ identifyNas <- function(vars=NULL) {
   completeCols <- names(which(sums==0))
   nas <- is.na(dataset)
   
-  data.nas <- dataset[,naCols]
-  data.complete <- dataset[,completeCols]
+  data.nas <- as.data.frame(dataset[,naCols])
+  data.complete <- as.data.frame(dataset[,completeCols])
   
-  return(list(naCols=naCols, nas=nas, complete=completeCols, data.nas=data.complete))
+  return(list(naCols=naCols, nas=nas, complete=completeCols, data.nas=data.nas, data.complete=data.complete))
   
 }
