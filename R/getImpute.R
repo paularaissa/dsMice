@@ -74,6 +74,6 @@ getImpute <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  return(imputedValues)
+  return(list(vars=vars, imputedValues=imputedValues))
   
 }
