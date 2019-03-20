@@ -21,8 +21,10 @@ identifyNas <- function(vars=NULL) {
   naCols <- names(which(sums!=0))
   completeCols <- names(which(sums==0))
   nas <- is.na(dataset)
-  #complete <- eval(parse(text = completeCols))
   
-  return(list(naCols=naCols, nas=nas, complete=completeCols))
+  data.nas <- as.data.frame(dataset[,naCols])
+  data.complete <- as.data.frame(datasets[,completeCols])
+  
+  return(list(naCols=naCols, nas=nas, complete=completeCols, data.nas=data.nas, data.complete=data.complete))
   
 }
