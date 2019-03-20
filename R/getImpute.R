@@ -42,7 +42,7 @@ getImpute <- function(beta, formula) {
   #naLines <- subset(bindxy, is.na(bindxy[,1]))
   
   #Select subset of missing data
-  xValuesMiss <- as.data.frame(bindxy[,naLines])
+  #xValuesMiss <- as.data.frame(bindxy[,naLines])
   
   # #Select subset of xValues
   # <- vars[-1]
