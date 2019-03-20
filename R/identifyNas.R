@@ -23,7 +23,7 @@ identifyNas <- function(vars=NULL) {
   nas <- is.na(dataset)
   
   data.nas <- dataset[,naCols]
-  data.complete <- datasets[,completeCols]
+  data.complete <- dataset[,completeCols]
   
   return(list(naCols=naCols, nas=nas, complete=completeCols, data.nas=data.complete))
   
