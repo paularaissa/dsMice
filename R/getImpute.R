@@ -36,7 +36,8 @@ getImpute <- function(beta, formula) {
   
   #Format variables
   vars <- all.vars(formula)
-  formatedVars <- paste0(vars[1], "$", vars[2:length(vars)])
+  ##formatedVars <- paste0(vars[1], "$", vars[2:length(vars)])
+  vars <- vars[-1]
   
   #Select subset of missing data
   #xValuesMiss <- subset(x=naRows, select=formatedVars[-1])
