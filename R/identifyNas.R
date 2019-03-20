@@ -17,7 +17,6 @@ identifyNas <- function(vars=NULL) {
   } else {
     dataset <- getVarByName(vars)
   }
-  col.sums <- colSums(is.na(dataset))
   
   #indice dos registros com variaveis completas
   # listNasbyCol <- NULL
@@ -29,6 +28,7 @@ identifyNas <- function(vars=NULL) {
   # }
  # naLines <- subset(dataset, is.na(dataset[,1]))
   
+  col.sums <- colSums(is.na(dataset))
   naCols <- names(which(col.sums!=0))
   completeCols <- names(which(col.sums==0))
   nas <- is.na(dataset)
@@ -38,6 +38,6 @@ identifyNas <- function(vars=NULL) {
   colnames(data.complete) <- completeCols
   rownames(data.complete) <- rownames(dataset)
   
-  return(list(naCols=naCols, nas=nas, complete=completeCols, data.nas=data.nas, data.complete=data.complete))
+  return(list(naCols=naCols, nas=nas, completeCols=completeCols, data.nas=data.nas, data.complete=data.complete))
   
 }
