@@ -20,13 +20,14 @@ identifyNas <- function(vars=NULL) {
   col.sums <- colSums(is.na(dataset))
   
   #indice dos registros com variaveis completas
-  listNasbyCol <- NULL
-  for (idxCol in 1:ncol(dataset)) {
-    row.sums <- rowSums(is.na(dataset[,idxCol]))
-    na.rows <- names(which(row.sums!=0))
-    colName <- colnames(nas$mice2$data.nas[1])
-    listNasbyCol[colName] <- na.rows
-  }
+  # listNasbyCol <- NULL
+  # for (idxCol in 1:ncol(dataset)) {
+  #   row.sums <- rowSums(is.na(dataset[,idxCol]))
+  #   na.rows <- names(which(row.sums!=0))
+  #   colName <- colnames(nas$mice2$data.nas[1])
+  #   listNasbyCol[colName] <- na.rows
+  # }
+  naLines <- subset(dataset, is.na(dataset[,1]))
   
   naCols <- names(which(col.sums!=0))
   completeCols <- names(which(col.sums==0))
@@ -37,6 +38,6 @@ identifyNas <- function(vars=NULL) {
   colnames(data.complete) <- completeCols
   rownames(data.complete) <- rownames(dataset)
   
-  return(list(naCols=naCols, nas=nas, complete=completeCols, data.nas=data.nas, data.complete=data.complete, na.rows=listNasbyCol))
+  return(list(naCols=naCols, nas=nas, complete=completeCols, data.nas=data.nas, data.complete=data.complete, na.rows=naLines))
   
 }
