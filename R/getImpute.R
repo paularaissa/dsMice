@@ -68,7 +68,7 @@ getImpute <- function(beta, formula) {
      # cont <- cont + 1
      
   }
-  return(top5)
+  return(subtract)
   #imputedValues <- as.data.frame(imputedValues)
   #rownames(imputedValues) <- rownames(naLines)
 
