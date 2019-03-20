@@ -53,14 +53,14 @@ getImpute <- function(beta, formula) {
   # # #Difference between estimates and real values
   cont <- 1
   imputedValues <- c()
-  top5 <- NULL
+  randomValue <- NULL
   for (value in estimated) {
      subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames
      colnames(subtract) <- "dif"
      rownames(subtract) <- rownames(xValues)
      top5 <- subtract[order(subtract$dif)[1:5],]
      top5 <- na.exclude(top5)
-     # randomValue <- sample(top5, 1)
+     randomValue <- sample(top5, 1)
      # matching <- match(randomValue, subtract$dif)
      # names <- rownames(subtract) #search the corresponding rowname
      # idValor <- names[matching]
@@ -69,7 +69,7 @@ getImpute <- function(beta, formula) {
      # cont <- cont + 1
      
   }
-  return(top5)
+  return(randomValue)
   #imputedValues <- as.data.frame(imputedValues)
   #rownames(imputedValues) <- rownames(naLines)
 
