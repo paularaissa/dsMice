@@ -44,7 +44,7 @@ getImpute <- function(beta, formula) {
   
   # #Select subset of xValues
   # <- vars[-1]
-  xValues <- unique(bindxy[,vars[-1]])
+  xValues <- as.data.frame(unique(bindxy[,vars[-1]]))
   
   # #Formula to compute the estimated values
   xMiss <- as.matrix(xValuesMiss[-1]) #x values where y is missing
