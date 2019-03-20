@@ -28,6 +28,10 @@ getImpute <- function(beta, formula) {
   
   bindxy <- getVarbyFormula(formula)
   bindxy$ID <- seq.int(nrow(bindxy))
+  
+  row.sums <- rowSums(is.na(bindxy))
+  naRows <- names(which(row.sums!=0))
+  
   naLines <- subset(bindxy, is.na(bindxy[,1]))
   
   #Format variables
@@ -35,7 +39,7 @@ getImpute <- function(beta, formula) {
   formatedVars <- paste0(vars[1], "$", vars[2:length(vars)])
   
   #Select subset of missing data
-  xValuesMiss <- subset(x=naLines, select=formatedVars[-1])
+  xValuesMiss <- subset(x=naRows, select=formatedVars[-1])
   
   #Select subset of xValues
   xValues <- unique(subset(x=bindxy, select=formatedVars[-1]))
@@ -62,7 +66,7 @@ getImpute <- function(beta, formula) {
      cont <- cont + 1
   }
   imputedValues <- as.data.frame(imputedValues)
-  rownames(imputedValues) <- rownames(naLines)
+  rownames(imputedValues) <- rownames(naRows)
   
   # estimated <- data.frame(estimated, missPosition)
   # 
