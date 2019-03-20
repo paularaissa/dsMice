@@ -19,30 +19,35 @@
 
 getImpute <- function(beta, formula) {
   
+  #Format variables
+  vars <- all.vars(formula)
+  ##formatedVars <- paste0(vars[1], "$", vars[2:length(vars)])
+  vars <- vars[-1]
+  
   #Data transformations
   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
   beta.reg <- data.matrix(beta.reg.aux)
   
   #Retrive the values and variables x
-  bindxy <- dsMice::getNa(formula)
+  #bindxy <- dsMice::getNa(formula)
   
-  bindxy <- getVarbyFormula(formula)
+  #bindxy <- getVarbyFormula(formula)
   #bindxy$ID <- seq.int(nrow(bindxy))
+  bindxy <- eval(parse(text="D"))
   
   row.sums <- rowSums(is.na(bindxy))
   naRows <- names(which(row.sums!=0))
   
   #naLines <- subset(bindxy, is.na(bindxy[,1]))
   
-  #Format variables
-  vars <- all.vars(formula)
-  ##formatedVars <- paste0(vars[1], "$", vars[2:length(vars)])
-  vars <- vars[-1]
+  
+  
+  
   
   #Select subset of missing data
   #xValuesMiss <- subset(x=naRows, select=formatedVars[-1])
   #data.nas <- as.data.frame(bindxy[,naRows])
-  return(vars)
+  return(row.sums)
   
   # #Select subset of xValues
   # xValues <- unique(subset(x=bindxy, select=formatedVars[-1]))
