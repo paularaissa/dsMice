@@ -55,16 +55,17 @@ getImpute <- function(beta, formula) {
   imputedValues <- c()
   for (value in estimated) {
      subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames
-     colnames(subtract) <- "dif"
-     rownames(subtract) <- rownames(xValues)
-     top5 <- subtract[order(subtract$dif)[1:5],]
-     randomValue <- sample(top5, 1)
-     matching <- match(randomValue, subtract$dif)
-     names <- rownames(subtract) #search the corresponding rowname
-     idValor <- names[matching]
-     valor <- xValues[idValor, ]
-     imputedValues[cont] <- valor
-     cont <- cont + 1
+     # colnames(subtract) <- "dif"
+     # rownames(subtract) <- rownames(xValues)
+     # top5 <- subtract[order(subtract$dif)[1:5],]
+     # randomValue <- sample(top5, 1)
+     # matching <- match(randomValue, subtract$dif)
+     # names <- rownames(subtract) #search the corresponding rowname
+     # idValor <- names[matching]
+     # valor <- xValues[idValor, ]
+     # imputedValues[cont] <- valor
+     # cont <- cont + 1
+     return(subtract)
   }
   #imputedValues <- as.data.frame(imputedValues)
   #rownames(imputedValues) <- rownames(naLines)
@@ -74,6 +75,6 @@ getImpute <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  return(imputedValues)
+  
   
 }
