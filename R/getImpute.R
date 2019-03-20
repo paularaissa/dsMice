@@ -62,14 +62,14 @@ getImpute <- function(beta, formula) {
      top5 <- na.exclude(top5)
      randomValue <- sample(top5, 1)
      matching <- match(randomValue, subtract$dif)
-     # names <- rownames(subtract) #search the corresponding rowname
-     # idValor <- names[matching]
-     # valor <- xValues[idValor, ]
-     # imputedValues[cont] <- valor
+     names <- rownames(subtract) #search the corresponding rowname
+     idValor <- names[matching]
+     valor <- xValues[idValor, ]
+     imputedValues[cont] <- valor
      # cont <- cont + 1
      
   }
-  return(matching)
+  return(imputedValues)
   #imputedValues <- as.data.frame(imputedValues)
   #rownames(imputedValues) <- rownames(naLines)
 
