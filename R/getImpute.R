@@ -27,7 +27,7 @@ getImpute <- function(beta, formula) {
   bindxy <- dsMice::getNa(formula)
   
   bindxy <- getVarbyFormula(formula)
-  bindxy$ID <- seq.int(nrow(bindxy))
+  #bindxy$ID <- seq.int(nrow(bindxy))
   
   row.sums <- rowSums(is.na(bindxy))
   naRows <- names(which(row.sums!=0))
