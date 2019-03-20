@@ -41,7 +41,7 @@ getImpute <- function(beta, formula) {
   #Select subset of missing data
   #xValuesMiss <- subset(x=naRows, select=formatedVars[-1])
   #data.nas <- as.data.frame(bindxy[,naRows])
-  return(bindxy)
+  return(vars)
   
   # #Select subset of xValues
   # xValues <- unique(subset(x=bindxy, select=formatedVars[-1]))
