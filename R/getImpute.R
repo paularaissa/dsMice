@@ -44,10 +44,8 @@ getImpute <- function(beta, formula) {
   
   # #Select subset of xValues
   # <- vars[-1]
-  xValues <- bindxy[,vars[-1]]
+  xValues <- unique(bindxy[,vars[-1]])
   
-  # #xValues <- as.data.frame(xValues[!is.na(xValues)])
-  # 
   # #Formula to compute the estimated values
   #xMiss <- as.matrix(xValuesMiss)
   #estimated <- xMiss %*% as.vector(beta.reg[-1])
