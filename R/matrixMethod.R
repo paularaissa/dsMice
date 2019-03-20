@@ -40,7 +40,7 @@ matrixMethod <- function(formula, subset=NULL, weight=1, family=NULL) {
   bind.y <- na.omit(data.matrix(bindxy$y))
 
   xtx <- t(bind.x) %*% bind.x
-  xty <- t(bind.x) %*% bind.y
+ # xty <- t(bind.x) %*% bind.y
   
   return(list(bind.y=bind.y, bind.x=bind.x))
   
