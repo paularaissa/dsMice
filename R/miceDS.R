@@ -256,7 +256,7 @@
 #'
 #'
 
-miceDS <- function(vars, m = 5, 
+miceDS <- function(vars=NULL, m = 5, 
                     method = NULL,
                     predictorMatrix = NULL,
                     where = NULL,

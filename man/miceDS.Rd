@@ -4,7 +4,7 @@
 \alias{miceDS}
 \title{Multivariate Imputation by Chained Equations (MICE)}
 \usage{
-miceDS(vars, m = 5, method = NULL, predictorMatrix = NULL,
+miceDS(vars = NULL, m = 5, method = NULL, predictorMatrix = NULL,
   where = NULL, blocks = NULL, visitSequence = NULL,
   formulas = NULL, blots = NULL, post = NULL,
   defaultMethod = c("pmm", "logreg", "polyreg", "polr"), maxit = 5,
