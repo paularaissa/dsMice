@@ -78,6 +78,6 @@ getImpute <- function(beta, formula) {
   # # vars <- all.vars(as.formula(formula))
   # # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   # 
-  return(list(vars=vars[-1], bindxy=bindxy))
+  return(list(vars=vars, bindxy=bindxy))
   
 }
