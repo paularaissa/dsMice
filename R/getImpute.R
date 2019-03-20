@@ -65,12 +65,12 @@ getImpute <- function(beta, formula) {
      matching <- match(randomValue, subtract$dif)
      names <- rownames(subtract) #search the corresponding rowname
      idValor <- names[matching]
-     #valor <- xValues[idValor, ]
+     valor <- xValues[idValor, ]
      #imputedValues[cont] <- valor
      # cont <- cont + 1
      
   }
-  return(xValues)
+  return(valor)
   #imputedValues <- as.data.frame(imputedValues)
   #rownames(imputedValues) <- rownames(naLines)
 
