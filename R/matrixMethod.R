@@ -42,9 +42,9 @@ matrixMethod <- function(formula, subset=NULL, weight=1, family=NULL) {
   
 
   xtx <- t(bind.x) %*% bind.x
-  xty <- t(bind.x) %*% bind.y
+  #xty <- t(bind.x) %*% bind.y
   
-  return(xty)
+  return(bind.y)
   
   # 
   # sum.y <- sum(bind.y)
