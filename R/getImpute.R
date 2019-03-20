@@ -44,7 +44,7 @@ getImpute <- function(beta, formula) {
   
   # #Select subset of xValues
   # <- vars[-1]
-  #xValues <- bindxy[,vars[-1]]
+  xValues <- bindxy[,vars[-1]]
   
   # #xValues <- as.data.frame(xValues[!is.na(xValues)])
   # 
@@ -76,6 +76,6 @@ getImpute <- function(beta, formula) {
   # # vars <- all.vars(as.formula(formula))
   # # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   # 
-  return(list(vars=vars, xValuesMiss=xValuesMiss))
+  return(list(vars=vars, xValues=xValues))
   
 }
