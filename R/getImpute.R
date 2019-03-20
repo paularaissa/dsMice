@@ -47,8 +47,8 @@ getImpute <- function(beta, formula) {
   xValues <- unique(bindxy[,vars[-1]])
   
   # #Formula to compute the estimated values
-  #xMiss <- as.matrix(xValuesMiss)
-  #estimated <- xMiss %*% as.vector(beta.reg[-1])
+  xMiss <- as.matrix(xValuesMiss)
+  estimated <- xMiss %*% as.vector(beta.reg[-1])
   #   
   # # #Difference between estimates and real values
   # cont <- 1
@@ -74,6 +74,6 @@ getImpute <- function(beta, formula) {
   # # vars <- all.vars(as.formula(formula))
   # # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
   # 
-  return(list(vars=vars, xValues=xValues))
+  return(list(vars=vars, estimated=estimated))
   
 }
