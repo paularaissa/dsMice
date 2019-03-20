@@ -32,7 +32,7 @@ getImpute <- function(beta, formula) {
   row.sums <- rowSums(is.na(bindxy))
   naRows <- names(which(row.sums!=0))
   
-  naLines <- subset(bindxy, is.na(bindxy[,1]))
+  #naLines <- subset(bindxy, is.na(bindxy[,1]))
   
   #Format variables
   vars <- all.vars(formula)
@@ -40,7 +40,7 @@ getImpute <- function(beta, formula) {
   
   #Select subset of missing data
   #xValuesMiss <- subset(x=naRows, select=formatedVars[-1])
-  data.nas <- as.data.frame(bindxy[,naCols])
+  data.nas <- as.data.frame(bindxy[,naRows])
   return(data.nas)
   
   # #Select subset of xValues
