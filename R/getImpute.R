@@ -65,7 +65,8 @@ getImpute <- function(beta, formula) {
      matching <- match(randomValue, subtract$dif)
      names <- rownames(subtract) #search the corresponding rowname
      idValor <- names[matching]
-     valor <- xValues[idValor, ]
+     #valor <- xValues[idValor, ]
+     valor <- bindxy[vars[1]]
      imputedValues[cont] <- valor
      cont <- cont + 1
      
