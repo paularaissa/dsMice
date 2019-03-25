@@ -43,9 +43,9 @@ getImpute <- function(beta, formula) {
   xValuesMiss <- bindxy[naLines,]
   
   #Select subset of complete data
-  xValuesComplete <- bindxy[-naLines,]
+  #xValuesComplete <- bindxy[-naLines,]
   
-  return(xValuesComplete)
+  return(list(bibdxy=bindxy, lines=naLines))
   
   # #Select subset of xValues
   # <- vars[-1]
