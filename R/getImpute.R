@@ -51,7 +51,7 @@ getImpute <- function(beta, formula) {
 
   # #Formula to compute the estimated values
   xMiss <- as.matrix(xValuesMiss[-1]) #x values where y is missing
-  xComplete <- as.matrix(xValuesComplete)
+  xComplete <- as.matrix(xValuesComplete[-1])
   #estimated <- beta.reg[1] + xMiss %*% as.vector(beta.reg[-1])
   # 
   yHatMis <- beta.reg[1] + xMiss %*% as.vector(beta.reg[-1])
