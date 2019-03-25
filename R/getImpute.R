@@ -42,6 +42,11 @@ getImpute <- function(beta, formula) {
   #Select subset of missing data
   xValuesMiss <- bindxy[naLines,]
   
+  #Select subset of complete data
+  xValuesComplete <- bindxy[-naLines, ]
+  
+  return(list(miss=xValuesMiss, comp=xValuesComplete))
+  
   # #Select subset of xValues
   # <- vars[-1]
   xValues <- as.data.frame(unique(bindxy[,vars[-1]]))
@@ -52,25 +57,26 @@ getImpute <- function(beta, formula) {
   estimated <- xMiss %*% as.vector(beta.reg[-1])
   #   
   # # #Difference between estimates and real values
-  cont <- 1
-  imputedValues <- c()
-  valor <- NULL
-  for (value in estimated) {
-     subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames
-     colnames(subtract) <- "dif"
-     rownames(subtract) <- rownames(xValues)
-     top5 <- subtract[order(subtract$dif)[1:5],]
-     top5 <- na.exclude(top5)
-     randomValue <- sample(top5, 1)
-     matching <- match(randomValue, subtract$dif)
-     names <- rownames(subtract) #search the corresponding rowname
-     idValor <- names[matching]
-     #valor <- xValues[idValor, ]
-     #valor <- bindxy[vars[1]]
-     # imputedValues[cont] <- valor
-     # cont <- cont + 1
-     return(bindxy)
-  }
+  # cont <- 1
+  # imputedValues <- c()
+  # valor <- NULL
+  # for (value in estimated) {
+  #    subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames
+  #    colnames(subtract) <- "dif"
+  #    rownames(subtract) <- rownames(xValues)
+  #    top5 <- subtract[order(subtract$dif)[1:5],]
+  #    top5 <- na.exclude(top5)
+  #    randomValue <- sample(top5, 1)
+  #    matching <- match(randomValue, subtract$dif)
+  #    names <- rownames(subtract) #search the corresponding rowname
+  #    idValor <- names[matching]
+  #    #valor <- xValues[idValor, ]
+  #    #valor <- bindxy[vars[1]]
+  #    # imputedValues[cont] <- valor
+  #    # cont <- cont + 1
+  #    return(bindxy)
+  # }
+  
   # imputedValues <- as.data.frame(imputedValues)
   # rownames(imputedValues) <- naLines
 
