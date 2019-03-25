@@ -64,15 +64,15 @@ getImpute <- function(beta, formula) {
       rownames(subtract) <- rownames(xValues)
       top5 <- subtract[order(subtract$dif)[1:5],]
       top5 <- na.exclude(top5)
-      randomValue <- sample(top5, 1)
-      matching <- match(randomValue, subtract$dif)
-      names <- rownames(subtract) #search the corresponding rowname
-      idValor <- names[matching]
-      valor <- xValuesComplete[idValor, 1]
+      # randomValue <- sample(top5, 1)
+      # matching <- match(randomValue, subtract$dif)
+      # names <- rownames(subtract) #search the corresponding rowname
+      # idValor <- names[matching]
+      # valor <- xValuesComplete[idValor, 1]
   #    #valor <- bindxy[vars[1]]
       # imputedValues[cont] <- valor
   #    # cont <- cont + 1
-  #    return(bindxy)
+      return(top5)
    }
   
   # imputedValues <- as.data.frame(imputedValues)
@@ -84,6 +84,6 @@ getImpute <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  return(valor)
+  #return(valor)
   
 }
