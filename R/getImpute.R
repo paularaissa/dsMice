@@ -63,7 +63,7 @@ getImpute <- function(beta, formula) {
   valor <- NULL
   for (value in yHatMis) {
       subtract <- data.frame(mapply('-', value, yHatObs)) #same x values rownames
-      #colnames(subtract) <- "dif"
+      colnames(subtract) <- "dif"
       #rownames(subtract) <- rownames(xValues)
       #top5 <- subtract[order(subtract$dif)[1:5],]
      # top5 <- na.exclude(top5)
