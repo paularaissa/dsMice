@@ -29,6 +29,7 @@ getImpute <- function(beta, formula) {
   #Data transformations
   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
   beta.reg <- data.matrix(beta.reg.aux)
+  beta.reg <- beta.reg[-1]
   
   #Retrive the values and variables x
   #bindxy <- dsMice::getNa(formula)
@@ -51,30 +52,36 @@ getImpute <- function(beta, formula) {
 
   # #Formula to compute the estimated values
   xMiss <- as.matrix(xValuesMiss[-1]) #x values where y is missing
-  xComplete <- as.matrix(xValuesComplete[-1])
-  estimated <- xMiss %*% as.vector(beta.reg[-1])
-  # #   
-  # # #Difference between estimates and real values
-  cont <- 1
-  imputedValues <- c()
-  valor <- NULL
-  for (value in estimated) {
-      subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames
-      colnames(subtract) <- "dif"
-      rownames(subtract) <- rownames(xValues)
-      top5 <- subtract[order(subtract$dif)[1:5],]
-     # top5 <- na.exclude(top5)
-      # randomValue <- sample(top5, 1)
-      # matching <- match(randomValue, subtract$dif)
-      # names <- rownames(subtract) #search the corresponding rowname
-      # idValor <- names[matching]
-      # valor <- xValuesComplete[idValor, 1]
-  #    #valor <- bindxy[vars[1]]
-      # imputedValues[cont] <- valor
-  #    # cont <- cont + 1
-      return(subtract)
-   }
+  xComplete <- as.matrix(xValuesComplete)
+  estimated <- xMiss %*% as.vector(beta.reg)
   
+  yHatMis <- xMiss %*% as.vector(beta.reg)
+  yHatObs <- xComplete %*% as.vector(beta.reg)
+  
+  return(list(yHatObs=yHatObs, yHatMis=yHatMis))
+  
+  # # #   
+  # # # #Difference between estimates and real values
+  # cont <- 1
+  # imputedValues <- c()
+  # valor <- NULL
+  # for (value in estimated) {
+  #     subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames
+  #     colnames(subtract) <- "dif"
+  #     rownames(subtract) <- rownames(xValues)
+  #     top5 <- subtract[order(subtract$dif)[1:5],]
+  #    # top5 <- na.exclude(top5)
+  #     # randomValue <- sample(top5, 1)
+  #     # matching <- match(randomValue, subtract$dif)
+  #     # names <- rownames(subtract) #search the corresponding rowname
+  #     # idValor <- names[matching]
+  #     # valor <- xValuesComplete[idValor, 1]
+  # #    #valor <- bindxy[vars[1]]
+  #     # imputedValues[cont] <- valor
+  # #    # cont <- cont + 1
+  #     return(subtract)
+  #  }
+  # 
   # imputedValues <- as.data.frame(imputedValues)
   # rownames(imputedValues) <- naLines
 
