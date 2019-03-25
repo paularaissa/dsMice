@@ -51,28 +51,29 @@ getImpute <- function(beta, formula) {
 
   # #Formula to compute the estimated values
   xMiss <- as.matrix(xValuesMiss[-1]) #x values where y is missing
+  xComplete <- as.matrix(xValuesComplete[-1])
   estimated <- xMiss %*% as.vector(beta.reg[-1])
   # #   
   # # #Difference between estimates and real values
-  # cont <- 1
-  # imputedValues <- c()
-  # valor <- NULL
-  # for (value in estimated) {
-  #    subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames
-  #    colnames(subtract) <- "dif"
-  #    rownames(subtract) <- rownames(xValues)
-  #    top5 <- subtract[order(subtract$dif)[1:5],]
-  #    top5 <- na.exclude(top5)
-  #    randomValue <- sample(top5, 1)
-  #    matching <- match(randomValue, subtract$dif)
-  #    names <- rownames(subtract) #search the corresponding rowname
-  #    idValor <- names[matching]
-  #    #valor <- xValues[idValor, ]
+  cont <- 1
+  imputedValues <- c()
+  valor <- NULL
+  for (value in estimated) {
+      subtract <- data.frame(mapply('-', value, xValues)) #same x values rownames
+      colnames(subtract) <- "dif"
+      rownames(subtract) <- rownames(xValues)
+      top5 <- subtract[order(subtract$dif)[1:5],]
+      top5 <- na.exclude(top5)
+      randomValue <- sample(top5, 1)
+      matching <- match(randomValue, subtract$dif)
+      names <- rownames(subtract) #search the corresponding rowname
+      idValor <- names[matching]
+      valor <- xValuesComplete[idValor, 1]
   #    #valor <- bindxy[vars[1]]
-  #    # imputedValues[cont] <- valor
+      # imputedValues[cont] <- valor
   #    # cont <- cont + 1
   #    return(bindxy)
-  # }
+   }
   
   # imputedValues <- as.data.frame(imputedValues)
   # rownames(imputedValues) <- naLines
@@ -83,6 +84,6 @@ getImpute <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  return(xMiss)
+  return(valor)
   
 }
