@@ -23,6 +23,8 @@ getImpute <- function(beta, formula) {
   vars <- all.vars(formula)
   ##formatedVars <- paste0(vars[1], "$", vars[2:length(vars)])
   vars <- vars[-1]
+  xColNames <- vars[-1]
+  yColNames <- vars[1]
   
   #Data transformations
   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
@@ -38,19 +40,17 @@ getImpute <- function(beta, formula) {
   
   row.sums <- rowSums(is.na(bindxy))
   naLines <- names(which(row.sums!=0))
-  
   #Select subset of missing data
   xValuesMiss <- bindxy[which(rownames(bindxy) %in% naLines), ]
-  
   #Select subset of complete data
   xValuesComplete <- bindxy[-which(rownames(bindxy) %in% naLines), ]
   
   # #Select subset of xValues
-  xValues <- as.data.frame(unique(bindxy[,vars[-1]]))
-  colnames(xValues) <- vars[-1]
+  xValues <- as.data.frame(unique(bindxy[,xColNames]))
+  colnames(xValues) <- xColNames
 
   # #Formula to compute the estimated values
-  #xMiss <- as.matrix(xValuesMiss[-1]) #x values where y is missing
+  xMiss <- as.matrix(xValuesMiss[-1]) #x values where y is missing
   #estimated <- xMiss %*% as.vector(beta.reg[-1])
   # #   
   # # #Difference between estimates and real values
@@ -83,6 +83,6 @@ getImpute <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  return(vars)
+  return(xMiss)
   
 }
