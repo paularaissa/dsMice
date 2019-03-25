@@ -69,7 +69,8 @@ getImpute <- function(beta, formula) {
      #valor <- bindxy[vars[1],]
      #imputedValues[cont] <- valor
      #cont <- cont + 1
-     bindxy[vars[1],]
+    # bindxy[vars[1],]
+     return(bindxy)
   }
   # imputedValues <- as.data.frame(imputedValues)
   # rownames(imputedValues) <- naLines
