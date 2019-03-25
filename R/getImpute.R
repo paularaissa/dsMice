@@ -55,9 +55,9 @@ getImpute <- function(beta, formula) {
   #estimated <- beta.reg[1] + xMiss %*% as.vector(beta.reg[-1])
   # 
   yHatMis <- beta.reg[1] + xMiss %*% as.vector(beta.reg[-1])
-  # yHatObs <- xComplete %*% as.vector(beta.reg)
+  yHatObs <- beta.reg[1] + xComplete %*% as.vector(beta.reg[-1])
   
-  return(yHatMis)
+  return(yHatObs)
   
   # # #   
   # # # #Difference between estimates and real values
