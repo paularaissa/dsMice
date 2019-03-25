@@ -63,7 +63,7 @@ getImpute <- function(beta, formula) {
       colnames(subtract) <- "dif"
       rownames(subtract) <- rownames(xValues)
       top5 <- subtract[order(subtract$dif)[1:5],]
-      top5 <- na.exclude(top5)
+     # top5 <- na.exclude(top5)
       # randomValue <- sample(top5, 1)
       # matching <- match(randomValue, subtract$dif)
       # names <- rownames(subtract) #search the corresponding rowname
