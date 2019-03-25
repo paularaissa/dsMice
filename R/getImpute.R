@@ -29,7 +29,6 @@ getImpute <- function(beta, formula) {
   #Data transformations
   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
   beta.reg <- data.matrix(beta.reg.aux)
-  beta.reg <- beta.reg[-1]
   
   #Retrive the values and variables x
   #bindxy <- dsMice::getNa(formula)
@@ -53,12 +52,12 @@ getImpute <- function(beta, formula) {
   # #Formula to compute the estimated values
   xMiss <- as.matrix(xValuesMiss[-1]) #x values where y is missing
   xComplete <- as.matrix(xValuesComplete)
-  estimated <- xMiss %*% as.vector(beta.reg)
+  # estimated <- xMiss %*% as.vector(beta.reg)
+  # 
+  # yHatMis <- xMiss %*% as.vector(beta.reg)
+  # yHatObs <- xComplete %*% as.vector(beta.reg)
   
-  yHatMis <- xMiss %*% as.vector(beta.reg)
-  yHatObs <- xComplete %*% as.vector(beta.reg)
-  
-  return(list(yHatMis=yHatMis))
+  return(list(beta.reg=beta.reg))
   
   # # #   
   # # # #Difference between estimates and real values
