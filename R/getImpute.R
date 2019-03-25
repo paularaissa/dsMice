@@ -72,7 +72,7 @@ getImpute <- function(beta, formula) {
   #    #valor <- bindxy[vars[1]]
       # imputedValues[cont] <- valor
   #    # cont <- cont + 1
-      return(top5)
+      return(subtract)
    }
   
   # imputedValues <- as.data.frame(imputedValues)
