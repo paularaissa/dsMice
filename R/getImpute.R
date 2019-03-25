@@ -66,19 +66,20 @@ getImpute <- function(beta, formula) {
      names <- rownames(subtract) #search the corresponding rowname
      idValor <- names[matching]
      #valor <- xValues[idValor, ]
-     valor <- bindxy[vars[1],]
-     imputedValues[cont] <- valor
-     cont <- cont + 1
-     
+     #valor <- bindxy[vars[1],]
+     #imputedValues[cont] <- valor
+     #cont <- cont + 1
+     bindxy[vars[1],]
   }
-  imputedValues <- as.data.frame(imputedValues)
-  rownames(imputedValues) <- naLines
+  # imputedValues <- as.data.frame(imputedValues)
+  # rownames(imputedValues) <- naLines
 
+  ## NÃO USAR ESSE CODIGO
   # estimated <- data.frame(estimated, missPosition)
-  #
+  # 
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  return(imputedValues)
+  #return(imputedValues)
   
 }
