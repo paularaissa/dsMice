@@ -21,7 +21,6 @@ getImpute <- function(beta, formula) {
   
   #Format variables
   vars <- all.vars(formula)
-  ##formatedVars <- paste0(vars[1], "$", vars[2:length(vars)])
   vars <- vars[-1]
   xColNames <- vars[-1]
   yColNames <- vars[1]
@@ -29,12 +28,7 @@ getImpute <- function(beta, formula) {
   #Data transformations
   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
   beta.reg <- data.matrix(beta.reg.aux)
-  
-  #Retrive the values and variables x
-  #bindxy <- dsMice::getNa(formula)
-  
-  #bindxy <- getVarbyFormula(formula)
-  #bindxy$ID <- seq.int(nrow(bindxy))
+
   bindxy <- eval(parse(text="D"))
   bindxy <- bindxy[,vars]
   
@@ -45,15 +39,15 @@ getImpute <- function(beta, formula) {
   #Select subset of complete data
   xValuesComplete <- bindxy[-which(rownames(bindxy) %in% naLines), ]
   
-  # #Select subset of xValues
+  #Select subset of xValues
   xValues <- as.data.frame(unique(bindxy[,xColNames]))
   colnames(xValues) <- xColNames
 
-  # #Formula to compute the estimated values
+  #Formula to compute the estimated values
   xMiss <- as.matrix(xValuesMiss[-1]) #x values where y is missing
   xComplete <- as.matrix(xValuesComplete[-1])
-  #estimated <- beta.reg[1] + xMiss %*% as.vector(beta.reg[-1])
-  # 
+  
+  #Compute estimated values y_hat_miss and y_hat_obs
   yHatMis <- beta.reg[1] + xMiss %*% as.vector(beta.reg[-1])
   yHatObs <- beta.reg[1] + xComplete %*% as.vector(beta.reg[-1])
   
@@ -73,14 +67,8 @@ getImpute <- function(beta, formula) {
       cont <- cont + 1
    }
 
-  # imputedValues <- as.data.frame(imputedValues)
-  # rownames(imputedValues) <- naLines
-
-  ##NAP USAR ESSA PARTE
-  # estimated <- data.frame(estimated, missPosition)
-  #
-  # vars <- all.vars(as.formula(formula))
-  # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
+  imputedValues <- as.data.frame(imputedValues)
+  rownames(imputedValues) <- naLines
 
   return(imputedValues)
   
