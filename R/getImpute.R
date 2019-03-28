@@ -73,11 +73,10 @@ getImpute <- function(beta, formula) {
       randomValue <- xValuesComplete[idValor, 1]
       imputedValues[cont] <- randomValue
       cont <- cont + 1
-      return(imputedValues)
    }
 
-  # imputedValues <- as.data.frame(imputedValues)
-  # rownames(imputedValues) <- naLines
+  imputedValues <- as.data.frame(imputedValues)
+  rownames(imputedValues) <- naLines
 
   ##NAP USAR ESSA PARTE
   # estimated <- data.frame(estimated, missPosition)
@@ -85,6 +84,6 @@ getImpute <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  #return(valor)
+  return(imputedValues)
   
 }
