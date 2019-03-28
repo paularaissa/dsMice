@@ -66,7 +66,7 @@ getImpute <- function(beta, formula) {
       colnames(subtract) <- "dif"
       rownames(subtract) <- rownames(yHatObs)
       #top5 <- subtract[order(subtract$dif),]
-      top5 <- subtract[sort(subtract$dif),]
+      top5 <- subtract[with(subtract, order(dif)), ]
       randomValue <- sample(top5, 1)
       # matching <- match(randomValue, yHatObs)
       # names <- rownames(subtract) #search the corresponding rowname
