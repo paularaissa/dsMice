@@ -70,11 +70,10 @@ getImpute <- function(beta, formula) {
       #randomValue <- subtract[1,"names"]
       #names <- rownames(subtract) #search the corresponding rowname
       idValor <- subtract[1,"names"]
-      valor <- xValuesComplete[idValor, 1]
-      #valor <- bindxy[vars[1]]
-      #imputedValues[cont] <- randomValue
+      randomValue <- xValuesComplete[idValor, 1]
+      imputedValues[cont] <- randomValue
       cont <- cont + 1
-      return(list(value=value, yHatObs=yHatObs, valor=valor))
+      return(imputedValues)
    }
 
   # imputedValues <- as.data.frame(imputedValues)
