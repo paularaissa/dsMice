@@ -74,7 +74,7 @@ getImpute <- function(beta, formula) {
       #valor <- bindxy[vars[1]]
       #imputedValues[cont] <- randomValue
       cont <- cont + 1
-      return(list(value=value, yHatObs=yHatObs, top5=top5, valor=valor))
+      return(list(value=value, yHatObs=yHatObs, valor=valor))
    }
 
   # imputedValues <- as.data.frame(imputedValues)
