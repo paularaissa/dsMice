@@ -66,15 +66,15 @@ getImpute <- function(beta, formula) {
       colnames(subtract) <- "dif"
       rownames(subtract) <- rownames(yHatObs)
       top5 <- subtract[order(subtract$dif)[1:5],]
-      # randomValue <- sample(top5, 1)
-      # matching <- match(randomValue, subtract$dif)
+      randomValue <- sample(top5, 1)
+      matching <- match(randomValue, subtract$dif)
       # names <- rownames(subtract) #search the corresponding rowname
       # idValor <- names[matching]
       # valor <- xValuesComplete[idValor, 1]
-  #    #valor <- bindxy[vars[1]]
+      #valor <- bindxy[vars[1]]
       # imputedValues[cont] <- valor
-  #    # cont <- cont + 1
-      return(list(value=value, yHatObs=yHatObs, top5=top5))
+      # cont <- cont + 1
+      return(list(value=value, yHatObs=yHatObs, top5=top5, matching=matching))
    }
 
   # imputedValues <- as.data.frame(imputedValues)
