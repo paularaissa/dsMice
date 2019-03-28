@@ -66,11 +66,11 @@ getImpute <- function(beta, formula) {
       colnames(subtract) <- "dif"
       rownames(subtract) <- rownames(yHatObs)
       subtract$names <- rownames(subtract)
-      # orderedDiff <- subtract[with(subtract, order(dif)), ]
+      orderedDiff <- subtract[with(subtract, order(dif)), ]
       # idValor <- subtract[1,"names"]
       # randomValue <- xValuesComplete[idValor, 1]
       # imputedValues[cont] <- randomValue
-      teste[cont] <- subtract
+      teste[cont] <- orderedDiff
       cont <- cont + 1
    }
 
