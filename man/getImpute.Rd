@@ -10,8 +10,6 @@ getImpute(beta, formula)
 \item{beta}{is a list of the regression coefficients.}
 
 \item{formula}{a string character to be transformed as an object of class \code{formula}.}
-
-\item{x}{is a study variable.}
 }
 \value{
 a vector of fitted values.
