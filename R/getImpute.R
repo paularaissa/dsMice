@@ -63,9 +63,9 @@ getImpute <- function(beta, formula) {
   valor <- NULL
   for (value in yHatMis) {
       subtract <- data.frame(abs(mapply('-', value, yHatObs))) #same x values rownames
-      # colnames(subtract) <- "dif"
-      # rownames(subtract) <- rownames(yHatObs)
-      # subtract$names <- rownames(subtract)
+      colnames(subtract) <- "dif"
+      rownames(subtract) <- rownames(yHatObs)
+      subtract$names <- rownames(subtract)
       # orderedDiff <- subtract[with(subtract, order(dif)), ]
       # idValor <- subtract[1,"names"]
       # randomValue <- xValuesComplete[idValor, 1]
