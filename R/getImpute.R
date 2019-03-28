@@ -60,7 +60,7 @@ getImpute <- function(beta, formula) {
   #Difference between estimates and real values
   cont <- 1
   imputedValues <- c()
-  valor <- NULL
+  teste <- list()
   for (value in yHatMis) {
       subtract <- data.frame(abs(mapply('-', value, yHatObs))) #same x values rownames
       colnames(subtract) <- "dif"
@@ -70,7 +70,8 @@ getImpute <- function(beta, formula) {
       # idValor <- subtract[1,"names"]
       # randomValue <- xValuesComplete[idValor, 1]
       # imputedValues[cont] <- randomValue
-      # cont <- cont + 1
+      teste[cont] <- subtract
+      cont <- cont + 1
    }
 
   # imputedValues <- as.data.frame(imputedValues)
@@ -82,6 +83,6 @@ getImpute <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  return(subtract)
+  return(teste)
   
 }
