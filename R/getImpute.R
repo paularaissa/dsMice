@@ -63,20 +63,18 @@ getImpute <- function(beta, formula) {
   valor <- NULL
   for (value in yHatMis) {
       subtract <- data.frame(abs(mapply('-', value, yHatObs))) #same x values rownames
-      colnames(subtract) <- "dif"
-      rownames(subtract) <- rownames(yHatObs)
-      subtract$names <- rownames(subtract)
-      orderedDiff <- subtract[with(subtract, order(dif)), ]
-      #randomValue <- subtract[1,"names"]
-      #names <- rownames(subtract) #search the corresponding rowname
-      idValor <- subtract[1,"names"]
-      randomValue <- xValuesComplete[idValor, 1]
-      imputedValues[cont] <- randomValue
-      cont <- cont + 1
+      # colnames(subtract) <- "dif"
+      # rownames(subtract) <- rownames(yHatObs)
+      # subtract$names <- rownames(subtract)
+      # orderedDiff <- subtract[with(subtract, order(dif)), ]
+      # idValor <- subtract[1,"names"]
+      # randomValue <- xValuesComplete[idValor, 1]
+      # imputedValues[cont] <- randomValue
+      # cont <- cont + 1
    }
 
-  imputedValues <- as.data.frame(imputedValues)
-  rownames(imputedValues) <- naLines
+  # imputedValues <- as.data.frame(imputedValues)
+  # rownames(imputedValues) <- naLines
 
   ##NAP USAR ESSA PARTE
   # estimated <- data.frame(estimated, missPosition)
@@ -84,6 +82,6 @@ getImpute <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  return(imputedValues)
+  return(subtract)
   
 }
