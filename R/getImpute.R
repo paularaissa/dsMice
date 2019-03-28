@@ -67,10 +67,9 @@ getImpute <- function(beta, formula) {
       rownames(subtract) <- rownames(yHatObs)
       subtract$names <- rownames(subtract)
       orderedDiff <- subtract[with(subtract, order(dif)), ]
-      # idValor <- subtract[1,"names"]
-      # randomValue <- xValuesComplete[idValor, 1]
-      # imputedValues[cont] <- randomValue
-      teste[cont] <- orderedDiff
+      idValor <- orderedDiff[1,"names"]
+      randomValue <- xValuesComplete[idValor, 1]
+      imputedValues[cont] <- randomValue
       cont <- cont + 1
    }
 
@@ -83,6 +82,6 @@ getImpute <- function(beta, formula) {
   # vars <- all.vars(as.formula(formula))
   # histogram <- dsMice::getHistogram(paste0("D$", vars[2]))
 
-  return(teste)
+  return(imputedValues)
   
 }
