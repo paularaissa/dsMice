@@ -62,7 +62,7 @@ getImpute <- function(beta, formula) {
   imputedValues <- c()
   valor <- NULL
   for (value in yHatMis) {
-      subtract <- data.frame(mapply('-', value, yHatObs)) #same x values rownames
+      subtract <- data.frame(abs(mapply('-', value, yHatObs))) #same x values rownames
       colnames(subtract) <- "dif"
       #rownames(subtract) <- rownames(xValues)
       #top5 <- subtract[order(subtract$dif)[1:5],]
@@ -75,7 +75,7 @@ getImpute <- function(beta, formula) {
   #    #valor <- bindxy[vars[1]]
       # imputedValues[cont] <- valor
   #    # cont <- cont + 1
-      return(list(value=value, yHatMiss=yHatMiss, subtract=subtract))
+      return(list(value=value, yHatMis=yHatMis, subtract=subtract))
    }
 
   # imputedValues <- as.data.frame(imputedValues)
