@@ -73,7 +73,7 @@ getImpute <- function(beta, formula) {
       # idValor <- names[matching]
       # valor <- xValuesComplete[idValor, 1]
       #valor <- bindxy[vars[1]]
-      imputedValues[cont] <- randomValue
+      #imputedValues[cont] <- randomValue
       cont <- cont + 1
       return(list(value=value, yHatObs=yHatObs, top5=top5, subtract=subtract))
    }
