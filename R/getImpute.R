@@ -64,7 +64,7 @@ getImpute <- function(beta, formula) {
   for (value in yHatMis) {
       subtract <- data.frame(abs(mapply('-', value, yHatObs))) #same x values rownames
       colnames(subtract) <- "dif"
-      #rownames(subtract) <- rownames(xValues)
+      rownames(subtract) <- rownames(yHatObs)
       #top5 <- subtract[order(subtract$dif)[1:5],]
      # top5 <- na.exclude(top5)
       # randomValue <- sample(top5, 1)
