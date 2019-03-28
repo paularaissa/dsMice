@@ -6,7 +6,6 @@
 #'
 #' @param beta is a list of the regression coefficients.
 #' @param formula a string character to be transformed as an object of class \code{formula}.
-#' @param x is a study variable.
 #'
 #' @return a vector of fitted values.
 #'
