@@ -16,7 +16,7 @@
 #' @export
 #'
 
-getXValuesComplete <- function(formula) {
+getXValuesComplete <- function(formula, idValuesList) {
  
   # 
   # randomValue <- xValuesComplete[idValor, 1]
@@ -25,6 +25,6 @@ getXValuesComplete <- function(formula) {
   # imputedValues <- as.data.frame(imputedValues)
   # rownames(imputedValues) <- naLines
   # 
-  return(formula)
+  return(list(formula, idValuesList))
    
 }

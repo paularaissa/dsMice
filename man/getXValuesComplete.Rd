@@ -4,7 +4,7 @@
 \alias{getXValuesComplete}
 \title{Partial Computation for Model Fitted Values}
 \usage{
-getXValuesComplete(formula)
+getXValuesComplete(formula, idValuesList)
 }
 \arguments{
 \item{formula}{a string character to be transformed as an object of class \code{formula}.}
