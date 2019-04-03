@@ -20,7 +20,8 @@ AggregateMethods: matrixProductDS,
     miceDS,
     identifyNas,
     nimp,
-    md.patternDS
+    md.patternDS,
+    getXValuesComplete,
 Options: datashield.privacyLevel=1
 RoxygenNote: 6.1.1
 Collate: 
@@ -52,3 +53,4 @@ Collate:
     'identifyNas.R'
     'nimp.R'
     'md.patternDS.R'
+    'getXValuesComplete.R'
