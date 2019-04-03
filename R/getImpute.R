@@ -16,7 +16,7 @@
 #' @export
 #'
 
-getImpute <- function(beta, formula) {
+getImpute <- function(beta, formula, type) {
   
   #Format variables
   vars <- all.vars(formula)
@@ -27,7 +27,7 @@ getImpute <- function(beta, formula) {
   #Data transformations
   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
   beta.reg <- data.matrix(beta.reg.aux)
-
+  
   bindxy <- eval(parse(text="D"))
   bindxy <- bindxy[,vars]
   
@@ -41,7 +41,7 @@ getImpute <- function(beta, formula) {
   #Select subset of xValues
   xValues <- as.data.frame(unique(bindxy[,xColNames]))
   colnames(xValues) <- xColNames
-
+  
   #Formula to compute the estimated values
   xMiss <- as.matrix(xValuesMiss[-1]) #x values where y is missing
   xComplete <- as.matrix(xValuesComplete[-1])
@@ -49,7 +49,33 @@ getImpute <- function(beta, formula) {
   #Compute estimated values y_hat_miss and y_hat_obs
   yHatMis <- beta.reg[1] + xMiss %*% as.vector(beta.reg[-1])
   yHatObs <- beta.reg[1] + xComplete %*% as.vector(beta.reg[-1])
-
-  return(list(yHatMis=yHatMis, yHatObs=yHatObs))
+  
+  toReturn <- NULL
+  switch(type, 
+         combine={
+           toReturn <- list(yHatMis=yHatMis, yHatObs=yHatObs)
+         },
+         split={
+           cont <- 1
+           imputedValues <- c()
+           teste <- list()
+           for (value in yHatMis) {
+             subtract <- data.frame(abs(mapply('-', value, yHatObs))) #same x values rownames
+             colnames(subtract) <- "dif"
+             rownames(subtract) <- rownames(yHatObs)
+             subtract$names <- rownames(subtract)
+             orderedDiff <- subtract[with(subtract, order(dif)), ]
+             idValor <- orderedDiff[1,"names"]
+             randomValue <- xValuesComplete[idValor, 1]
+             imputedValues[cont] <- randomValue
+             cont <- cont + 1
+           }
+           imputedValues <- as.data.frame(imputedValues)
+           rownames(imputedValues) <- naLines
+           toReturn <- imputedValues
+         }
+  )
+  
+  return(toReturn)
   
 }

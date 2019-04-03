@@ -28,23 +28,23 @@ getXValuesComplete <- function(formula, idValuesList) {
   idValues <- as.numeric(unlist(strsplit(idValuesList, split="x")))
   #beta.reg <- data.matrix(beta.reg.aux)
   
-  # bindxy <- eval(parse(text="D"))
-  # bindxy <- bindxy[,vars]
-  # 
-  # row.sums <- rowSums(is.na(bindxy))
-  # naLines <- names(which(row.sums!=0))
-  # #Select subset of missing data
-  # xValuesMiss <- bindxy[which(rownames(bindxy) %in% naLines), ]
-  # #Select subset of complete data
-  # xValuesComplete <- bindxy[-which(rownames(bindxy) %in% naLines), ]
-  # 
-  # 
-  # randomValue <- xValuesComplete[idValor, 1]
-  # imputedValues[cont] <- randomValue
-  # 
+  bindxy <- eval(parse(text="D"))
+  bindxy <- bindxy[,vars]
+   
+  row.sums <- rowSums(is.na(bindxy))
+  naLines <- names(which(row.sums!=0))
+  #Select subset of complete data
+  xValuesComplete <- bindxy[-which(rownames(bindxy) %in% naLines), ]
+
+  imputedValues <- c()
+  for (idValor in idValues) {
+    randomValue <- xValuesComplete[idValor, 1]
+    imputedValues[cont] <- randomValue
+  }
+
   # imputedValues <- as.data.frame(imputedValues)
   # rownames(imputedValues) <- naLines
 
-  return(idValues)
+  return(imputedValues)
    
 }
