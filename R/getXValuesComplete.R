@@ -36,7 +36,7 @@ getXValuesComplete <- function(formula, idValuesList) {
   #Select subset of complete data
   xValuesComplete <- bindxy[-which(rownames(bindxy) %in% naLines), ]
   
-  teste <- idValues %in% rownames(xValuesComplete)
+  teste <- xValuesComplete[which(idValues %in% rownames(xValuesComplete)),]
 
   # imputedValues <- c()
   # 
