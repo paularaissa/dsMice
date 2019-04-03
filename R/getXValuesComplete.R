@@ -16,7 +16,7 @@
 #' @export
 #'
 
-getXValuesComplete <- function(formula, idValor) {
+getXValuesComplete <- function(formula) {
  
   # 
   # randomValue <- xValuesComplete[idValor, 1]
