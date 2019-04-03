@@ -49,26 +49,7 @@ getImpute <- function(beta, formula) {
   #Compute estimated values y_hat_miss and y_hat_obs
   yHatMis <- beta.reg[1] + xMiss %*% as.vector(beta.reg[-1])
   yHatObs <- beta.reg[1] + xComplete %*% as.vector(beta.reg[-1])
-  
-  #Difference between estimates and real values
-  cont <- 1
-  imputedValues <- c()
-  teste <- list()
-  for (value in yHatMis) {
-      subtract <- data.frame(abs(mapply('-', value, yHatObs))) #same x values rownames
-      colnames(subtract) <- "dif"
-      rownames(subtract) <- rownames(yHatObs)
-      subtract$names <- rownames(subtract)
-      orderedDiff <- subtract[with(subtract, order(dif)), ]
-      idValor <- orderedDiff[1,"names"]
-      randomValue <- xValuesComplete[idValor, 1]
-      imputedValues[cont] <- randomValue
-      cont <- cont + 1
-   }
 
-  imputedValues <- as.data.frame(imputedValues)
-  rownames(imputedValues) <- naLines
-
-  return(imputedValues)
+  return(list(yHatMis=yHatMis, yHatObs=yHatObs))
   
 }
