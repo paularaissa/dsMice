@@ -18,6 +18,9 @@ identifyNas <- function(vars=NULL) {
     dataset <- getVarByName(vars)
   }
   
+  # Filter only numeric data
+  dataset <- Filter(is.numeric, dataset)
+  
   #indice dos registros com variaveis completas
   # listNasbyCol <- NULL
   # for (idxCol in 1:ncol(dataset)) {
