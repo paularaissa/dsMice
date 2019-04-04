@@ -52,6 +52,6 @@ getXValuesComplete <- function(formula, idValuesList) {
   # imputedValues <- as.data.frame(imputedValues)
   # rownames(imputedValues) <- naLines
 
-  return(imputedValuesDF)
+  return(list(idValues=length(idValues), xValuesComplete=nrow(xValuesComplete)))
    
 }
