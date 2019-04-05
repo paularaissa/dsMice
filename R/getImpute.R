@@ -27,7 +27,7 @@ getImpute <- function(beta, formula, type, m) {
   #Data transformations
   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
   beta.reg <- data.matrix(beta.reg.aux)
-  
+  m <- as.integer(m)
   bindxy <- eval(parse(text="D"))
   bindxy <- bindxy[,vars]
   
