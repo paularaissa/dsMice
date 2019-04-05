@@ -4,7 +4,7 @@
 \alias{getImpute}
 \title{Partial Computation for Model Fitted Values}
 \usage{
-getImpute(beta, formula, type)
+getImpute(beta, formula, type, m)
 }
 \arguments{
 \item{beta}{is a list of the regression coefficients.}

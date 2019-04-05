@@ -16,7 +16,7 @@
 #' @export
 #'
 
-getImpute <- function(beta, formula, type) {
+getImpute <- function(beta, formula, type, m) {
   
   #Format variables
   vars <- all.vars(formula)
@@ -65,8 +65,10 @@ getImpute <- function(beta, formula, type) {
              rownames(subtract) <- rownames(yHatObs)
              subtract$names <- rownames(subtract)
              orderedDiff <- subtract[with(subtract, order(dif)), ]
-             idValor <- orderedDiff[1,"names"]
-             randomValue <- xValuesComplete[idValor, 1]
+             topDiff <- orderedDiff[1:m,]
+             candidateMap <- sample(topDiff[,"names"], 1)
+             #idValor <- orderedDiff[1,"names"]
+             randomValue <- xValuesComplete[candidateMap, 1]
              imputedValues[cont] <- randomValue
              cont <- cont + 1
            }
