@@ -77,7 +77,7 @@ getImpute <- function(beta, formula, type, m) {
            colnames(imputedValues) <- yColNames
            toReturn <- imputedValues
            newDataSet <- bindxy
-           newDataSet[which(rownames(newDataSet) %in% rownames(imputedValues)), yColNames] <- imputedValues
+           #newDataSet[which(rownames(newDataSet) %in% rownames(imputedValues)), yColNames] <- imputedValues
            toReturn <- newDataSet
          }
   )
