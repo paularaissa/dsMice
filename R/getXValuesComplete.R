@@ -28,8 +28,8 @@ getXValuesComplete <- function(formula, idValuesList) {
   idValues <- as.numeric(unlist(strsplit(idValuesList, split="x")))
   #beta.reg <- data.matrix(beta.reg.aux)
   
-  bindxy <- eval(parse(text="D"))
-  bindxy <- bindxy[,vars]
+  #bindxy <- eval(parse(text="D"))
+  bindxy <- dataset[,vars]
    
   row.sums <- rowSums(is.na(bindxy))
   naLines <- names(which(row.sums!=0))
