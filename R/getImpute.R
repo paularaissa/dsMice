@@ -51,6 +51,7 @@ getImpute <- function(beta, formula, type, m) {
   yHatObs <- beta.reg[1] + xComplete %*% as.vector(beta.reg[-1])
   
   toReturn <- NULL
+  newDataSet <- NULL
   switch(type, 
          combine={
            toReturn <- list(yHatMis=yHatMis, yHatObs=yHatObs)
@@ -81,6 +82,9 @@ getImpute <- function(beta, formula, type, m) {
            toReturn <- newDataSet
          }
   )
+  
+  # Update dataset global variable
+  dataset <<- newDataSet
   
   return(toReturn)
   

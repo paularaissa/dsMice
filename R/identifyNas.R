@@ -10,14 +10,19 @@
 #' @export
 #
 
-identifyNas <- function(vars=NULL) {
+identifyNas <- function(execution) {
   
-  if(is.null(vars)) {
-    dataset <<- eval(parse(text="D"))
-  } else {
-    dataset <<- getVarByName(vars)
+  # if(is.null(vars)) {
+  #   dataset <<- eval(parse(text="D"))
+  # } else {
+  #   dataset <<- getVarByName(vars)
+  # }
+  
+  if(execution == 1) {
+    dataset <<- eval(parse(text="D")) ##Define dataset of globalenv.
+  } else if (execution > 1) {
+    dataset <- dataset
   }
-  
   # Filter only numeric data
   numericDataset <- Filter(is.numeric, dataset)
   
