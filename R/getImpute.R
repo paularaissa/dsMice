@@ -28,8 +28,8 @@ getImpute <- function(beta, formula, type, m) {
   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
   beta.reg <- data.matrix(beta.reg.aux)
   m <- as.integer(m)
-  bindxy <- eval(parse(text="D"))
-  bindxy <- bindxy[,vars]
+  dataset <- eval(parse(text="D"))
+  bindxy <- dataset[,vars]
   
   row.sums <- rowSums(is.na(bindxy))
   naLines <- names(which(row.sums!=0))
@@ -76,8 +76,8 @@ getImpute <- function(beta, formula, type, m) {
            rownames(imputedValues) <- naLines
            colnames(imputedValues) <- yColNames
            toReturn <- imputedValues
-           newDataSet <- bindxy
-           #newDataSet[which(rownames(newDataSet) %in% rownames(imputedValues)), yColNames] <- imputedValues
+           newDataSet <- dataset
+           newDataSet[which(rownames(newDataSet) %in% rownames(imputedValues)), yColNames] <- imputedValues
            toReturn <- newDataSet
          }
   )
