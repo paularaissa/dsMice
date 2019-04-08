@@ -22,6 +22,7 @@ AggregateMethods: matrixProductDS,
     nimp,
     md.patternDS,
     getXValuesComplete,
+    partialDataset
 Options: datashield.privacyLevel=1
 RoxygenNote: 6.1.1
 Collate: 
@@ -54,3 +55,4 @@ Collate:
     'nimp.R'
     'md.patternDS.R'
     'getXValuesComplete.R'
+    'partialDataset.R'

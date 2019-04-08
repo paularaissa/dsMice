@@ -75,6 +75,9 @@ getImpute <- function(beta, formula, type, m) {
            imputedValues <- as.data.frame(imputedValues)
            rownames(imputedValues) <- naLines
            toReturn <- imputedValues
+           newDataSet <- bindxy
+           toReturn <- newDataSet
+           #newDataSet[which(rownames(newDataSet) %in% naLines), ] <- imputedValues
          }
   )
   
