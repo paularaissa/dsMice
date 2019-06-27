@@ -26,11 +26,8 @@ Options: datashield.privacyLevel=5
 RoxygenNote: 6.1.1
 Collate: 
     'checkClass.R'
-    'extract.R'
-    'findLoginObjects.R'
     'getImpute.R'
     'getHistogram.R'
-    'getOpals.R'
     'getVarByName.R'
     'getVarbyFormula.R'
     'isAssigned.R'

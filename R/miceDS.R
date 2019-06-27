@@ -23,7 +23,6 @@
 #'these variables, and imputes these from the corresponding categorical
 #'variable. 
 #'
-#'
 #'@param data A data frame or a matrix containing the incomplete data.  Missing
 #'values are coded as \code{NA}.
 #'@param m Number of multiple imputations. The default is \code{m=5}.
@@ -49,14 +48,14 @@
 #'method will be used for all blocks. The default imputation method (when no
 #'argument is specified) depends on the measurement level of the target column,
 #'as regulated by the \code{defaultMethod} argument. Columns that need
-#'not be imputed have the empty method \code{""}. See details.
-#'@param predictorMatrix A numeric matrix of \code{length(blocks)} rows 
-#'and \code{ncol(data)} columns, containing 0/1 data specifying 
+#'not be imputed have the empty method. See details.
+#'@param predictorMatrix A numeric matrix of length(blocks) rows 
+#'and ncol(data) columns, containing 0/1 data specifying 
 #'the set of predictors to be used for each target column.
 #'Each row corresponds to a variable block, i.e., a set of variables 
 #'to be imputed. A value of \code{1} means that the column
 #'variable is used as a predictor for the target block (in the rows). 
-#'By default, the \code{predictorMatrix} is a square matrix of \code{ncol(data)}
+#'By default, the \code{predictorMatrix} is a square matrix of ncol(data)
 #'rows and columns with all 1's, except for the diagonal. 
 #'Note: For two-level imputation models (which have \code{"2l"} in their names)
 #'other codes (e.g, \code{2} or \code{-2}) are also allowed.
@@ -80,7 +79,7 @@
 #'specifying imputation models, e.g., for specifying interaction terms. 
 #'@param blots A named \code{list} of \code{alist}'s that can be used 
 #'to pass down arguments to lower level imputation function. The entries
-#'of element \code{blots[[blockname]]} are passed down to the function
+#'of element blots are passed down to the function
 #'called for block \code{blockname}.
 #'@param post A vector of strings with length \code{ncol(data)} specifying
 #'expressions as strings. Each string is parsed and 
@@ -98,7 +97,7 @@
 #'@param maxit A scalar giving the number of iterations. The default is 5.
 #'@param printFlag If \code{TRUE}, mice will print history on console.
 #'Use \code{print=FALSE} for silent computation.
-#'@param seed An integer that is used as argument by the \code{set.seed()} for
+#'@param seed An integer that is used as argument by the set.seed() for
 #'offsetting the random number generator. Default is to leave the random number
 #'generator alone.
 #'@param data.init A data frame of the same size and type as \code{data},
@@ -110,34 +109,7 @@
 #'@param ... Named arguments that are passed down to the univariate imputation
 #'functions.
 #'
-#'@return Returns an S3 object of class mids}
-#'        (multiply imputed data set)
-#'@author Stef van Buuren \email{stef.vanbuuren@@tno.nl}, Karin
-#'Groothuis-Oudshoorn \email{c.g.m.oudshoorn@@utwente.nl}, 2000-2010, with
-#'contributions of Alexander Robitzsch, Gerko Vink, Shahab Jolani, 
-#'Roel de Jong, Jason Turner, Lisa Doove, 
-#'John Fox, Frank E. Harrell, and Peter Malewski.
-#'@references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). 
-#'
-#'Van Buuren, S. (2018). 
-#'\href{https://stefvanbuuren.name/fimd/sec-FCS.html#sec:MICE}{\emph{Flexible Imputation of Missing Data. Second Edition.}}
-#'Chapman & Hall/CRC. Boca Raton, FL.
-#'
-#'Van Buuren, S., Brand, J.P.L., Groothuis-Oudshoorn C.G.M., Rubin, D.B. (2006)
-#'Fully conditional specification in multivariate imputation.  \emph{Journal of
-#'Statistical Computation and Simulation}, \bold{76}, 12, 1049--1064.
-#'
-#'Van Buuren, S. (2007) Multiple imputation of discrete and continuous data by
-#'fully conditional specification.  \emph{Statistical Methods in Medical
-#'Research}, \bold{16}, 3, 219--242.
-#'
-#'Van Buuren, S., Boshuizen, H.C., Knook, D.L. (1999) Multiple imputation of
-#'missing blood pressure covariates in survival analysis.  \emph{Statistics in
-#'Medicine}, \bold{18}, 681--694.
-#'
-#'Brand, J.P.L. (1999) \emph{Development, implementation and evaluation of
-#'multiple imputation strategies for the statistical analysis of incomplete
-#'data sets.} Dissertation. Rotterdam: Erasmus University.
+#'@return Returns an S3 object of class mids
 #'@keywords iteration
 #'@export
 
