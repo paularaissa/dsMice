@@ -1,6 +1,5 @@
-#' Name imputation blocks
-#'
-#' This helper function names any unnamed elements in the \code{blocks} 
+#' @title Name imputation blocks
+#' @description This helper function names any unnamed elements in the \code{blocks} 
 #' specification. This is a convenience function.
 #' @inheritParams mice
 #' @param prefix A character vector of length 1 with the prefix to

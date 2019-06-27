@@ -1,12 +1,10 @@
-#' Name imputation blocks
+#' @title Name imputation blocks
 #'
 #' This helper function names any unnamed elements in the \code{blocks} 
 #' specification. This is a convenience function.
-#' @inheritParams mice
 #' @param prefix A character vector of length 1 with the prefix to
 #' be using for naming any unnamed blocks with two or more variables.
 #' @return A named list of character vectors with variables names.
-#' @seealso \code{\link{mice}}
 #' @details 
 #' This function will name any unnamed list elements specified in 
 #' the optional argument \code{blocks}. Unnamed blocks 

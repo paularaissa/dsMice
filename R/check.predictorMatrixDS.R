@@ -1,6 +1,5 @@
-#' Creates a \code{predictorMatrix} argument
-#'
-#' This helper function creates a valid \code{predictMatrix}. The 
+#' @title Creates a \code{predictorMatrix} argument
+#' @description This helper function creates a valid \code{predictMatrix}. The 
 #' \code{predictorMatrix} is an argument to the \code{mice} function. 
 #' It specifies the target variable or block in the rows, and the 
 #' predictor variables on the columns. An entry of \code{0} means that 

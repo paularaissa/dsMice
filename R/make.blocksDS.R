@@ -1,7 +1,6 @@
-#' Creates a \code{blocks} argument
-#'
-#' This helper function generates a list of the type needed for 
-#' \code{blocks} argument in the \code{[=mice]{mice}} function.
+#' @title Creates a \code{blocks} argument
+#' @description This helper function generates a list of the type needed for 
+#' \code{blocks} argument in the mice function.
 #' @param data A \code{data.frame}, character vector with
 #' variable names, or \code{list} with variable names.
 #' @param partition A character vector of length 1 used to assign 

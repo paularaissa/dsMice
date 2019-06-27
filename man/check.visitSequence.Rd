@@ -17,6 +17,3 @@ specifies the sequence in which blocks are imputed.
 \examples{
 make.visitSequence(nhanes)
 }
-\seealso{
-\code{\link{mice}}
-}

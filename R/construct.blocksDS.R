@@ -1,6 +1,5 @@
-#' Construct blocks from \code{formulas} and \code{predictorMatrix} 
-#'
-#' This helper function attempts to find blocks of variables in the
+#' @title Construct blocks from \code{formulas} and \code{predictorMatrix} 
+#' @description This helper function attempts to find blocks of variables in the
 #' specification of the \code{formulas} and/or \code{predictorMatrix}
 #' objects. Blocks specified by \code{formulas} may consist of 
 #' multiple variables. Blocks specified by \code{predictorMatrix} are
@@ -10,7 +9,6 @@
 #' specify models for the same block, the model for the 
 #' \code{predictMatrix} is removed, and priority is given to the 
 #' specification given in \code{formulas}. 
-#' @inheritParams mice 
 #' @return A \code{blocks} object.
 #' @seealso \code{\link{make.blocks}}, \code{\link{name.blocks}}
 #' @examples

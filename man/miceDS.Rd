@@ -34,8 +34,8 @@ other codes (e.g, \code{2} or \code{-2}) are also allowed.}
 
 \item{where}{A data frame or matrix with logicals of the same dimensions
 as \code{data} indicating where in the data the imputations should be
-created. The default, \code{where = is.na(data)}, specifies that the
-missing data should be imputed. The \code{where} argument may be used to
+created. The default specifies that the
+missing data should be imputed. The where argument may be used to
 overimpute observed data, or to skip imputations for selected missing values.}
 
 \item{blocks}{List of vectors with variable names per block. List elements
@@ -92,7 +92,7 @@ levels) \code{polr}, proportional odds model for (ordered, > 2 levels).}
 
 \item{maxit}{A scalar giving the number of iterations. The default is 5.}
 
-\item{printFlag}{If \code{TRUE}, \code{mice} will print history on console.
+\item{printFlag}{If \code{TRUE}, mice will print history on console.
 Use \code{print=FALSE} for silent computation.}
 
 \item{seed}{An integer that is used as argument by the \code{set.seed()} for
@@ -112,14 +112,9 @@ values are coded as \code{NA}.}
 \item{...}{Named arguments that are passed down to the univariate imputation
 functions.}
 }
-\value{
-Returns an S3 object of class \code{\link[=mids-class]{mids}}
-(multiply imputed data set)
-}
 \description{
 Generates Multivariate Imputations by Chained Equations (MICE)
-}
-\details{
+
 Generates multiple imputations for incomplete multivariate data by Gibbs
 sampling. Missing data can occur anywhere in the data. The algorithm imputes
 an incomplete column (the target column) by generating 'plausible' synthetic
@@ -140,122 +135,9 @@ The data may contain categorical variables that are used in a regressions on
 other variables. The algorithm creates dummy variables for the categories of
 these variables, and imputes these from the corresponding categorical
 variable.
-
-Built-in univariate imputation methods are:
-
-\tabular{lll}{
-\code{pmm}          \tab any     \tab Predictive mean matching\cr
-\code{midastouch}   \tab any     \tab Weighted predictive mean matching\cr
-\code{sample}       \tab any     \tab Random sample from observed values\cr
-\code{cart}         \tab any     \tab Classification and regression trees\cr
-\code{rf}           \tab any     \tab Random forest imputations\cr
-\code{mean}         \tab numeric \tab Unconditional mean imputation\cr
-\code{norm}         \tab numeric \tab Bayesian linear regression\cr
-\code{norm.nob}     \tab numeric \tab Linear regression ignoring model error\cr
-\code{norm.boot}    \tab numeric \tab Linear regression using bootstrap\cr
-\code{norm.predict} \tab numeric \tab Linear regression, predicted values\cr
-\code{quadratic}    \tab numeric \tab Imputation of quadratic terms\cr
-\code{ri}           \tab numeric \tab Random indicator for nonignorable data\cr
-\code{logreg}       \tab binary  \tab Logistic regression\cr
-\code{logreg.boot}  \tab binary  \tab Logistic regression with bootstrap\cr
-\code{polr}         \tab ordered \tab Proportional odds model\cr
-\code{polyreg}      \tab unordered\tab Polytomous logistic regression\cr
-\code{lda}          \tab unordered\tab Linear discriminant analysis\cr
-\code{2l.norm}      \tab numeric  \tab Level-1 normal heteroscedastic\cr
-\code{2l.lmer}      \tab numeric  \tab Level-1 normal homoscedastic, lmer\cr
-\code{2l.pan}       \tab numeric  \tab Level-1 normal homoscedastic, pan\cr
-\code{2l.bin}       \tab binary   \tab Level-1 logistic, glmer\cr
-\code{2lonly.mean}  \tab numeric  \tab Level-2 class mean\cr
-\code{2lonly.norm}  \tab numeric  \tab Level-2 class normal\cr
-\code{2lonly.pmm}   \tab any      \tab Level-2 class predictive mean matching
-}
-
-These corresponding functions are coded in the \code{mice} library under
-names \code{mice.impute.method}, where \code{method} is a string with the
-name of the univariate imputation method name, for example \code{norm}. The
-\code{method} argument specifies the methods to be used.  For the \code{j}'th
-column, \code{mice()} calls the first occurrence of
-\code{paste('mice.impute.', method[j], sep = '')} in the search path.  The
-mechanism allows uses to write customized imputation function,
-\code{mice.impute.myfunc}. To call it for all columns specify
-\code{method='myfunc'}.  To call it only for, say, column 2 specify
-\code{method=c('norm','myfunc','logreg',\dots{})}.
-
-\emph{Passive imputation:} \code{mice()} supports a special built-in method,
-called passive imputation. This method can be used to ensure that a data
-transform always depends on the most recently generated imputations.  In some
-cases, an imputation model may need transformed data in addition to the
-original data (e.g. log, quadratic, recodes, interaction, sum scores, and so
-on).
-
-Passive imputation maintains consistency among different transformations of
-the same data. Passive imputation is invoked if \code{~} is specified as the
-first character of the string that specifies the univariate method.
-\code{mice()} interprets the entire string, including the \code{~} character,
-as the formula argument in a call to \code{model.frame(formula,
-data[!r[,j],])}. This provides a simple mechanism for specifying deterministic
-dependencies among the columns. For example, suppose that the missing entries
-in variables \code{data$height} and \code{data$weight} are imputed. The body
-mass index (BMI) can be calculated within \code{mice} by specifying the
-string \code{'~I(weight/height^2)'} as the univariate imputation method for
-the target column \code{data$bmi}.  Note that the \code{~} mechanism works
-only on those entries which have missing values in the target column. You
-should make sure that the combined observed and imputed parts of the target
-column make sense. An easy way to create consistency is by coding all entries
-in the target as \code{NA}, but for large data sets, this could be
-inefficient.  Note that you may also need to adapt the default
-\code{predictorMatrix} to evade linear dependencies among the predictors that
-could cause errors like \code{Error in solve.default()} or \code{Error:
-system is exactly singular}. Though not strictly needed, it is often useful
-to specify \code{visitSequence} such that the column that is imputed by the
-\code{~} mechanism is visited each time after one of its predictors was
-visited. In that way, deterministic relation between columns will always be
-synchronized.
-
-#'A new argument \code{ls.meth} can be parsed to the lower level
-\code{.norm.draw} to specify the method for generating the least squares
-estimates and any subsequently derived estimates. Argument \code{ls.meth}
-takes one of three inputs: \code{"qr"} for QR-decomposition, \code{"svd"} for
-singular value decomposition and \code{"ridge"} for ridge regression.
-\code{ls.meth} defaults to \code{ls.meth = "qr"}.
-
-\emph{Auxiliary predictors in formulas specification: }
-For a given block, the \code{formulas} specification takes precedence over
-the corresponding row in the \code{predictMatrix} argument. This
-precedence is, however, restricted to the subset of variables
-specified in the terms of the block formula. Any
-variables not specified by \code{formulas} are imputed
-according to the \code{predictMatrix} specification. Variables with
-non-zero \code{type} values in the \code{predictMatrix} will
-be added as main effects to the \code{formulas}, which will
-act as supplementary covariates in the imputation model. It is possible
-to turn off this behavior by specifying the
-argument \code{auxiliary = FALSE}.
-}
-\examples{
-
-
-# do default multiple imputation on a numeric matrix
-imp <- mice(nhanes)
-imp
-
-# list the actual imputations for BMI
-imp$imp$bmi
-
-# first completed data matrix
-complete(imp)
-
-
-# imputation on mixed data with a different method per column
-
-mice(nhanes2, meth=c('sample','pmm','logreg','norm'))
-
 }
 \references{
-Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}:
-Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
-Statistical Software}, \bold{45}(3), 1-67.
-\url{https://www.jstatsoft.org/v45/i03/}
+Van Buuren, S., Groothuis-Oudshoorn, K. (2011).
 
 Van Buuren, S. (2018).
 \href{https://stefvanbuuren.name/fimd/sec-FCS.html#sec:MICE}{\emph{Flexible Imputation of Missing Data. Second Edition.}}
@@ -276,10 +158,6 @@ Medicine}, \bold{18}, 681--694.
 Brand, J.P.L. (1999) \emph{Development, implementation and evaluation of
 multiple imputation strategies for the statistical analysis of incomplete
 data sets.} Dissertation. Rotterdam: Erasmus University.
-}
-\seealso{
-\code{\link[=mids-class]{mids}}, \code{\link{with.mids}},
-\code{\link{set.seed}}, \code{\link{complete}}
 }
 \author{
 Stef van Buuren \email{stef.vanbuuren@tno.nl}, Karin

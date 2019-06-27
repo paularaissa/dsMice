@@ -8,7 +8,7 @@ Description: Client side functions for distributed multiple imputations.
 Imports: Rdpack
 RdMacros: Rdpack
 Roxygen: list(markdown = TRUE)
-AggregateMethods: matrixProductDS,
+AggregateMethods:
     matrixMethod,
     getVarbyFormula,
     isValidDS,
@@ -21,9 +21,8 @@ AggregateMethods: matrixProductDS,
     identifyNas,
     nimp,
     md.patternDS,
-    getXValuesComplete,
-    partialDataset
-Options: datashield.privacyLevel=1
+    getXValuesComplete
+Options: datashield.privacyLevel=5
 RoxygenNote: 6.1.1
 Collate: 
     'checkClass.R'
@@ -55,4 +54,3 @@ Collate:
     'nimp.R'
     'md.patternDS.R'
     'getXValuesComplete.R'
-    'partialDataset.R'

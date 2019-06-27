@@ -2,7 +2,10 @@
 % Please edit documentation in R/check.blocksDS.R
 \name{check.blocksDS}
 \alias{check.blocksDS}
-\title{Name imputation blocks}
+\title{Name imputation blocks
+
+This helper function names any unnamed elements in the \code{blocks}
+specification. This is a convenience function.}
 \usage{
 check.blocksDS(blocks, data, calltype = "type")
 }
@@ -14,6 +17,8 @@ be using for naming any unnamed blocks with two or more variables.}
 A named list of character vectors with variables names.
 }
 \description{
+Name imputation blocks
+
 This helper function names any unnamed elements in the \code{blocks}
 specification. This is a convenience function.
 }
@@ -28,7 +33,4 @@ stating at 1.
 \examples{
 blocks <- list(c("hyp", "chl"), AGE = "age", c("bmi", "hyp"), "edu")
 name.blocks(blocks)
-}
-\seealso{
-\code{\link{mice}}
 }

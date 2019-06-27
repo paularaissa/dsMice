@@ -2,7 +2,7 @@
 % Please edit documentation in R/make.visitSequence.R
 \name{make.visitSequence}
 \alias{make.visitSequence}
-\title{Creates a \code{visitSequence} argument}
+\title{Creates a visit sequence argument}
 \usage{
 make.visitSequence(data = NULL, blocks = NULL)
 }
@@ -10,13 +10,10 @@ make.visitSequence(data = NULL, blocks = NULL)
 Vector containing block names
 }
 \description{
-This helper function creates a valid \code{visitSequence}. The
-\code{visitSequence} is an argument to the \code{mice} function that
+This helper function creates a valid visit sequence. The
+\code{visitSequence} is an argument to the mice function that
 specifies the sequence in which blocks are imputed.
 }
 \examples{
 make.visitSequence(nhanes)
-}
-\seealso{
-\code{\link{mice}}
 }
