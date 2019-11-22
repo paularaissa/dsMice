@@ -9,9 +9,6 @@
 #'
 #' @return a vector of fitted values.
 #'
-#' @section Dependencies:
-#' \code{\link{getVarbyFormula}}
-#'
 #' @author Paula R. Costa e Silva
 #' @export
 #'
@@ -85,6 +82,7 @@ getImpute <- function(beta, formula, type, m) {
   
   # Update dataset global variable
   dataset <<- newDataSet
+  
   
   return(toReturn)
   

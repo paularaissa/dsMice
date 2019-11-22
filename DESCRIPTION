@@ -21,7 +21,8 @@ AggregateMethods:
     identifyNas,
     nimp,
     md.patternDS,
-    getXValuesComplete
+    getXValuesComplete,
+    initialIntervalCountingsDS
 Options: datashield.privacyLevel=5
 RoxygenNote: 6.1.1
 Collate: 
@@ -51,3 +52,4 @@ Collate:
     'nimp.R'
     'md.patternDS.R'
     'getXValuesComplete.R'
+    'initialIntervalCountingsDS.R'

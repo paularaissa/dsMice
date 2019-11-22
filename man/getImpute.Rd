@@ -21,11 +21,6 @@ Calculates the fitted values in each data node.
 Considering \code{y} as a response variable and x as study variable, the fitted values are the y-values that
 would expect for the given x-values according to the best-fitting straight line.
 }
-\section{Dependencies}{
-
-\code{\link{getVarbyFormula}}
-}
-
 \author{
 Paula R. Costa e Silva
 }
