@@ -22,7 +22,7 @@ AggregateMethods:
     nimp,
     md.patternDS,
     getXValuesComplete,
-    initialIntervalCountingsDS
+    individualFill
 Options: datashield.privacyLevel=5
 RoxygenNote: 6.1.1
 Collate: 
@@ -52,4 +52,4 @@ Collate:
     'nimp.R'
     'md.patternDS.R'
     'getXValuesComplete.R'
-    'initialIntervalCountingsDS.R'
+    'individualFill.R'
