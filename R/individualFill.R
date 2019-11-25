@@ -15,6 +15,6 @@ individualFill <- function(varName, boxes) {
   #   }
   # }
   
-  return(boxes)
+  return(dataColumn)
   
 }
