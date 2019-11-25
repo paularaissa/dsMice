@@ -1,6 +1,8 @@
 #' @export
 individualFill <- function(varName, boxes) {
   
+  boxes <- as.numeric(unlist(strsplit(boxes, split = "x")))
+  
   dataColumn <- getVarByName(varName)
   countings <- rep(0, length(boxes))
   
