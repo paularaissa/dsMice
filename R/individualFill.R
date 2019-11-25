@@ -8,7 +8,7 @@ individualFill <- function(varName, boxes) {
   
   for (val in dataColumn){
     for (i in 1:length(boxes)) {
-      if (float(val) > boxes[[i]][1] & float(val) <= boxes[[i]][2]){
+      if (val > boxes[[i]][1] & val <= boxes[[i]][2]){
         countings[i] <- countings[i] + 1
         break()
       }
