@@ -3,7 +3,7 @@ individualFill <- function(varName, boxes) {
   
   boxes <- as.numeric(unlist(strsplit(boxes, split = "x")))
   
-  dataColumn <- getVarByName(varName)
+  dataColumn <- unlist(getVarByName(varName)[,1])
   countings <- rep(0, length(boxes))
   
   # for (val in dataColumn){
