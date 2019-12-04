@@ -24,7 +24,7 @@ AggregateMethods:
     getXValuesComplete,
     individualFill
 Options: datashield.privacyLevel=5
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Collate: 
     'checkClass.R'
     'getImpute.R'
