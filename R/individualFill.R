@@ -1,5 +1,5 @@
 #' @export
-individualFill <- function(boxes) {
+individualFill <- function(varName, boxes) {
   
   boxes <- jsonlite::fromJSON(boxes, simplifyMatrix = FALSE)
 
