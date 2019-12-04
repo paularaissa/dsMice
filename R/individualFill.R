@@ -1,7 +1,7 @@
 #' @export
 individualFill <- function(boxes) {
   
-  boxes <- jsonlite::fromJSON(boxes)
+  boxes <- jsonlite::fromJSON(boxes, simplifyMatrix = FALSE)
   # 
   # dataColumn <- unlist(getVarByName(varName)[,1])
   # countings <- rep(0, length(boxes))
