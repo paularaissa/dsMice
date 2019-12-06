@@ -22,7 +22,8 @@ AggregateMethods:
     nimp,
     md.patternDS,
     getXValuesComplete,
-    individualFill
+    individualFill,
+    individualFill2
 Options: datashield.privacyLevel=5
 RoxygenNote: 7.0.2
 Collate: 
@@ -53,3 +54,4 @@ Collate:
     'md.patternDS.R'
     'getXValuesComplete.R'
     'individualFill.R'
+    'individualFill2.R'
