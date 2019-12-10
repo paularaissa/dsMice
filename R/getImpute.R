@@ -51,7 +51,11 @@ getImpute <- function(beta, formula, type, m) {
   newDataSet <- NULL
   switch(type, 
          combine={
-           toReturn <- list(yHatMis=yHatMis, yHatObs=yHatObs)
+           #toReturn <- list(yHatMis=yHatMis, yHatObs=yHatObs)
+           toReturn <- yHatMis
+           # for (value in yHatMis) {
+           #   subtract <- 
+           # }
          },
          split={
            cont <- 1
