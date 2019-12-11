@@ -2,6 +2,7 @@
 
 export(check.blocksDS)
 export(check.visitSequence)
+export(computeDiff)
 export(construct.blocksDS)
 export(getHistogram)
 export(getImpute)
