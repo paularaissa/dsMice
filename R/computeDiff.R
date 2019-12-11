@@ -13,22 +13,24 @@ computeDiff <- function(yHatMissing, varName) {
   naRows <- which(is.na(x))
   completeValues <- x[-naRows]
   
+  return(list(miss=yHatMiss, complete=completeValues))
+  
   idValor <- c()
   topDiff <- list()
-  for (value in yHatMis) {
-    subtract <- data.frame(abs(mapply('-', value, completeValues))) #same x values rownames
-    # colnames(subtract) <- "dif"
-    # rownames(subtract) <- rownames(completeValues)
-    # subtract$names <- rownames(subtract)
-    # orderedDiff <- subtract[with(subtract, order(dif)), ]
-    # topDiff[[cont]] <- orderedDiff[1:m,]
-    #candidateMap <- sample(topDiff[,"names"], 1)
-    #idValor <- orderedDiff[1,"names"]
-    #randomValue <- xValuesComplete[candidateMap, 1]
-    #imputedValues[cont] <- randomValue
-    return(subtract)
-    cont <- cont + 1
-  }
-  return(yHatMiss)
-  
+  # for (value in yHatMis) {
+  #   subtract <- data.frame(abs(mapply('-', value, completeValues))) #same x values rownames
+  #   # colnames(subtract) <- "dif"
+  #   # rownames(subtract) <- rownames(completeValues)
+  #   # subtract$names <- rownames(subtract)
+  #   # orderedDiff <- subtract[with(subtract, order(dif)), ]
+  #   # topDiff[[cont]] <- orderedDiff[1:m,]
+  #   #candidateMap <- sample(topDiff[,"names"], 1)
+  #   #idValor <- orderedDiff[1,"names"]
+  #   #randomValue <- xValuesComplete[candidateMap, 1]
+  #   #imputedValues[cont] <- randomValue
+  #   return(subtract)
+  #   cont <- cont + 1
+  # }
+  # return(yHatMiss)
+  # 
 }
