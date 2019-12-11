@@ -22,9 +22,8 @@ AggregateMethods:
     nimp,
     md.patternDS,
     getXValuesComplete,
-    individualFill
-AssignMethods:
-    computeDiff    
+    individualFill,
+    computeDiff
 Options: datashield.privacyLevel=5
 RoxygenNote: 7.0.2
 Collate: 
