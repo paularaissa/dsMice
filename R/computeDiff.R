@@ -26,7 +26,7 @@ computeDiff <- function(yHatMissing, varName) {
     #idValor <- orderedDiff[1,"names"]
     #randomValue <- xValuesComplete[candidateMap, 1]
     #imputedValues[cont] <- randomValue
-    rreturn(subtract)
+    return(subtract)
     cont <- cont + 1
   }
   return(topDiff)
