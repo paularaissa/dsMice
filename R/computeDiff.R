@@ -8,14 +8,11 @@ computeDiff <- function(yHatMissing, varName, m) {
     studysideMessage <- "ERROR: x.name must be specified as a character string"
     return(list(studysideMessage=studysideMessage))
   }
-  yHatMiss <- as.vector(unlist(jsonlite::fromJSON(yHatMissing, simplifyMatrix = FALSE)))
   
+  yHatMiss <- as.vector(unlist(jsonlite::fromJSON(yHatMissing, simplifyMatrix = FALSE)))
   naRows <- which(is.na(x))
   completeValues <- x[-naRows]
-  
   m <- as.numeric(m)
-  
-  #return(list(miss=yHatMiss, complete=completeValues))
   
   idValor <- c()
   topDiff <- list()
@@ -25,12 +22,9 @@ computeDiff <- function(yHatMissing, varName, m) {
     colnames(subtract) <- "dif"
     rownames(subtract) <- rownames(completeValues)
     subtract$names <- rownames(subtract)
+    subtract$miss <- value
     orderedDiff <- subtract[with(subtract, order(dif)), ]
-    topDiff[[value]] <- orderedDiff[1:m,]
-    #candidateMap <- sample(topDiff[,"names"], 1)
-    #idValor <- orderedDiff[1,"names"]
-    #randomValue <- xValuesComplete[candidateMap, 1]
-    #imputedValues[cont] <- randomValue
+    topDiff[[cont]] <- orderedDiff[1:m,]
     cont <- cont + 1
   }
   return(topDiff)
