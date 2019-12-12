@@ -23,7 +23,8 @@ AggregateMethods:
     md.patternDS,
     getXValuesComplete,
     individualFill,
-    testObjExistsDS
+    testObjExistsDS,
+    extractMinAndMaximum
 AssignMethods:
     computeDiff
 Options: datashield.privacyLevel=5
@@ -58,3 +59,4 @@ Collate:
     'individualFill.R'
     'computeDiff.R'
     'testObjExistsDS.R'
+    'extractMinAndMaximum.R'
