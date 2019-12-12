@@ -8,7 +8,7 @@ computeDiff <- function(yHatMissing, varName) {
     studysideMessage <- "ERROR: x.name must be specified as a character string"
     return(list(studysideMessage=studysideMessage))
   }
-  yHatMiss <- unlist(jsonlite::fromJSON(yHatMissing, simplifyMatrix = FALSE))
+  yHatMiss <- as.vector(unlist(jsonlite::fromJSON(yHatMissing, simplifyMatrix = FALSE)))
   
   naRows <- which(is.na(x))
   completeValues <- x[-naRows]
