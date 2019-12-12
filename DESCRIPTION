@@ -23,6 +23,8 @@ AggregateMethods:
     md.patternDS,
     getXValuesComplete,
     individualFill,
+    testObjExistsDS
+AssignMethods:
     computeDiff
 Options: datashield.privacyLevel=5
 RoxygenNote: 7.0.2
@@ -55,3 +57,4 @@ Collate:
     'getXValuesComplete.R'
     'individualFill.R'
     'computeDiff.R'
+    'testObjExistsDS.R'
