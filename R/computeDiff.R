@@ -17,7 +17,8 @@ computeDiff <- function(yHatMissing, varName) {
   
   idValor <- c()
   topDiff <- list()
-  for (value in yHatMis) {
+  cont <- 1
+  for (idx in 1:length(yHatMis)) {
     # subtract <- data.frame(abs(mapply('-', value, completeValues))) #same x values rownames
     # colnames(subtract) <- "dif"
     # rownames(subtract) <- rownames(completeValues)
@@ -28,8 +29,8 @@ computeDiff <- function(yHatMissing, varName) {
     #idValor <- orderedDiff[1,"names"]
     #randomValue <- xValuesComplete[candidateMap, 1]
     #imputedValues[cont] <- randomValue
-    return(value)
-    cont <- cont + 1
+    return(yHatMiss[idx])
+    #cont <- cont + 1
   }
   # return(yHatMiss)
   # 
