@@ -18,7 +18,7 @@ computeDiff <- function(yHatMissing, varName) {
   idValor <- c()
   topDiff <- list()
   cont <- 1
-  return(list(typeof(yHatMiss), class(yHatMiss)))
+  return(length(yHatMiss))
   # for (idx in 1:length(yHatMis)) {
   #   # subtract <- data.frame(abs(mapply('-', value, completeValues))) #same x values rownames
   #   # colnames(subtract) <- "dif"
