@@ -13,7 +13,7 @@ computeDiff <- function(yHatMissing, varName) {
   naRows <- which(is.na(x))
   completeValues <- x[-naRows]
   
-  return(list(miss=yHatMiss, complete=completeValues))
+  #return(list(miss=yHatMiss, complete=completeValues))
   
   idValor <- c()
   topDiff <- list()
