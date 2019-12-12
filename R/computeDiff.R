@@ -1,6 +1,6 @@
 #' @export
 
-computeDiff <- function(yHatMissing, varName) {
+computeDiff <- function(yHatMissing, varName, m) {
   
   if(is.character(varName)){
     x <- eval(parse(text=varName))
