@@ -19,6 +19,7 @@ computeDiff <- function(yHatMissing, varName, m) {
   cont <- 1
   for (value in yHatMiss) {
     subtract <- data.frame(abs(mapply('-', value, completeValues))) #same x values rownames
+    return(subtract)
     colnames(subtract) <- "dif"
     rownames(subtract) <- rownames(completeValues)
     subtract$names <- rownames(subtract)
