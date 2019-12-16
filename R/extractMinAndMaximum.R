@@ -1,6 +1,6 @@
 #'@export
 extractMinAndMaximum <- function(obj) {
-  
-  return(obj)
+  test.obj <- eval(parse(text=obj))
+  return(test.obj)
   
 }
