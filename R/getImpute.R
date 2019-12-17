@@ -25,7 +25,7 @@ getImpute <- function(beta, formula, type, m) {
   beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
   beta.reg <- data.matrix(beta.reg.aux)
   m <- as.integer(m)
-  #dataset <- eval(parse(text="D"))
+  dataset <- eval(parse(text="D"))
   bindxy <- dataset[,vars]
   
   row.sums <- rowSums(is.na(bindxy))
