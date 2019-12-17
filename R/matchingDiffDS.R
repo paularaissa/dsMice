@@ -1,10 +1,10 @@
-matchingDiffDS <- function(rank) {
-  # 
-  # ranking <- jsonlite::fromJSON(rank, simplifyMatrix = FALSE) 
-  # recovery.obj <- eval(parse(text=obj))
-  # 
+#'@export
+matchingDiffDS <- function(obj, rank) {
   
-  return(0)
+  ranking <- jsonlite::fromJSON(rank, simplifyMatrix = FALSE) 
+  recovery.obj <- eval(parse(text=obj))
   
-  #return(recovery.obj)
+  
+  
+  return(recovery.obj)
 }
