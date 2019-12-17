@@ -24,10 +24,10 @@ AggregateMethods:
     getXValuesComplete,
     individualFill,
     testObjExistsDS,
-    extractMinAndMaximum,
-    imputeNodeDS
+    extractMinAndMaximum
 AssignMethods:
-    computeDiff
+    computeDiff,
+    imputeNodeDS
 Options: datashield.privacyLevel=5
 RoxygenNote: 7.0.2
 Collate: 
