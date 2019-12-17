@@ -84,7 +84,7 @@ getImpute <- function(beta, formula, type, m) {
   )
   
   # Update dataset global variable
-  dataset <<- newDataSet
+  #dataset <<- newDataSet
   
   
   return(toReturn)
