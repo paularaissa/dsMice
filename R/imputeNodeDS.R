@@ -3,20 +3,21 @@
 
 imputeNodeDS <- function(beta, formula, m) {
   
-  return(0)
-  
   #Format variables
-  # vars <- all.vars(formula)
-  # vars <- vars[-1]
-  # xColNames <- vars[-1]
-  # yColNames <- vars[1]
-  # 
-  # #Data transformations
-  # beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
-  # beta.reg <- data.matrix(beta.reg.aux)
-  # m <- as.integer(m)
-  # #dataset <- eval(parse(text="D"))
-  # bindxy <- dataset[,vars]
+  vars <- all.vars(formula)
+  vars <- vars[-1]
+  xColNames <- vars[-1]
+  yColNames <- vars[1]
+
+  #Data transformations
+  beta.reg.aux <- as.numeric(unlist(strsplit(beta, split="x")))
+  beta.reg <- data.matrix(beta.reg.aux)
+  m <- as.integer(m)
+  dataset <- eval(parse(text="D"))
+  bindxy <- dataset[,vars]
+  
+  return(bindxy)
+  
   # 
   # row.sums <- rowSums(is.na(bindxy))
   # naLines <- names(which(row.sums!=0))
