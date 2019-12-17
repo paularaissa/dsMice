@@ -24,7 +24,8 @@ AggregateMethods:
     getXValuesComplete,
     individualFill,
     testObjExistsDS,
-    extractMinAndMaximum
+    extractMinAndMaximum,
+    individualFill2
 AssignMethods:
     computeDiff,
     imputeNodeDS
@@ -62,3 +63,4 @@ Collate:
     'testObjExistsDS.R'
     'extractMinAndMaximum.R'
     'imputeNodeDS.R'
+    'individualFill2.R'
