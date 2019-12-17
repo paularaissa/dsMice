@@ -4,7 +4,8 @@ extractMinAndMaximum <- function(obj) {
   
   min <- min(recovery.obj$dif)
   max <- max(recovery.obj$dif)
+  len <- nrow(recovery.obj)
   
-  return(list(min=min, max=max))
+  return(list(min=min, max=max, len=len))
   
 }
