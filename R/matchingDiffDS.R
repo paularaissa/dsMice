@@ -1,4 +1,4 @@
-matchingDiffDS <- function(obj, rank) {
+matchingDiffDS <- function(rank) {
   # 
   # ranking <- jsonlite::fromJSON(rank, simplifyMatrix = FALSE) 
   # recovery.obj <- eval(parse(text=obj))
