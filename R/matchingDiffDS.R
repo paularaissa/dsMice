@@ -6,5 +6,5 @@ matchingDiffDS <- function(obj, rank) {
   
   
   
-  return(recovery.obj)
+  return(list(ranking, recovery.obj))
 }
