@@ -3,7 +3,8 @@
 computeDiff <- function(yHatMissing, varName, m) {
   
   if(is.character(varName)){
-    x <- eval(parse(text=varName))
+    #x <- eval(parse(text=varName))
+    x <- eval(parse(D))
   }else{
     studysideMessage <- "ERROR: x.name must be specified as a character string"
     return(list(studysideMessage=studysideMessage))
