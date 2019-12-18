@@ -11,10 +11,10 @@ computeDiff <- function(yHatMissing, varName, m) {
   
   yHatMiss <- as.vector(unlist(jsonlite::fromJSON(yHatMissing, simplifyMatrix = FALSE)))
   naRows <- which(is.na(x))
-  completeValues <- x[[-naRows,]]
+  #completeValues <- x[[-naRows,]]
   m <- as.numeric(m)
   
-  return(completeValues)
+  return(list(x,naRows))
   
   # idValor <- c()
   # topDiff <- list()
