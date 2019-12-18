@@ -23,7 +23,6 @@ computeDiff <- function(yHatMissing, varName, m) {
     rownames(subtract) <- rownames(completeValues)
     subtract$names <- rownames(subtract)
     subtract$miss <- value
-    return(subtract)
     orderedDiff <- subtract[with(subtract, order(dif)), ]
     topDiff[[cont]] <- orderedDiff[1:m,]
     cont <- cont + 1
