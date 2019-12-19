@@ -1,5 +1,5 @@
 #'@export
-matchingDiffDS <- function(obj, rank) {
+matchingDiffDS <- function(obj, rank, varName) {
   
   ranking <- jsonlite::fromJSON(rank, simplifyMatrix = FALSE) 
   recovery.obj <- eval(parse(text=obj))
@@ -13,5 +13,18 @@ matchingDiffDS <- function(obj, rank) {
   }
   join <- do.call(rbind, map)
   
-  return(join)
+  rows_to_impute <- unique(join$names)
+  
+  x <- eval(parse(text=varName))
+  #missing_values <- which(is.na(x))
+  
+  #values_to_impute <- x[rows_to_impute]
+  
+  dataset <- eval(parse(text="D"))
+  #newDataSet <- dataset
+  
+  #newDataSet[which(rownames(newDataSet) %in% rownames(imputedValues)), yColNames] <- imputedValues
+  
+  
+  return(dataset)
 }
