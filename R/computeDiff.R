@@ -29,6 +29,7 @@ computeDiff <- function(yHatMissing, varName, m) {
     cont <- cont + 1
   }
   join <- do.call(rbind, topDiff)
+  join$ids_complete <- rownames(join)
   return(join)
 
 }
