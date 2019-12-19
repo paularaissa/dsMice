@@ -16,15 +16,15 @@ matchingDiffDS <- function(obj, rank, varName) {
   rows_to_impute <- unique(join$names)
   
   x <- eval(parse(text=varName))
-  #missing_values <- which(is.na(x))
+  missing_values <- which(is.na(x))
   
-  #values_to_impute <- x[rows_to_impute]
+  values_to_impute <- x[rows_to_impute]
   
   dataset <- eval(parse(text="D"))
-  #newDataSet <- dataset
+  newDataSet <- dataset
   
   #newDataSet[which(rownames(newDataSet) %in% rownames(imputedValues)), yColNames] <- imputedValues
   
   
-  return(dataset)
+  return(missing_values)
 }
