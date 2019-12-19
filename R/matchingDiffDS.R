@@ -26,5 +26,5 @@ matchingDiffDS <- function(obj, rank, varName) {
   #newDataSet[which(rownames(newDataSet) %in% rows_to_impute), varName] <- values_to_impute
   
   
-  return(list(x, join))
+  return(list(x, join, dataset))
 }
