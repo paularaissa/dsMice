@@ -23,8 +23,8 @@ matchingDiffDS <- function(obj, rank, varName) {
   dataset <- eval(parse(text="D"))
   newDataSet <- dataset
   
-  #newDataSet[which(rownames(newDataSet) %in% rownames(imputedValues)), yColNames] <- imputedValues
+  newDataSet[which(rownames(newDataSet) %in% rows_to_impute), yColNames] <- values_to_impute
   
   
-  return(missing_values)
+  return(newDataSet)
 }
