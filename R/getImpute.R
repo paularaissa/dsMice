@@ -54,6 +54,7 @@ getImpute <- function(beta, formula, type, m) {
            toReturn <- list(yHatMis=yHatMis, yHatObs=yHatObs)
          },
          combine={
+           names(yHatMis) <- naLines
            toReturn <- yHatMis
          },
          split={
