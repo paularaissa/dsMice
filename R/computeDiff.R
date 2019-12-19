@@ -1,7 +1,7 @@
 #' @export
 
 computeDiff <- function(yHatMissing, varName, m) {
-  
+  ## receber os ids da função collectDifs
   if(is.character(varName)){
     x <- eval(parse(text=varName))
   }else{
@@ -21,7 +21,7 @@ computeDiff <- function(yHatMissing, varName, m) {
     subtract <- data.frame(abs(mapply('-', value, completeValues))) #same x values rownames
     colnames(subtract) <- "dif"
     rownames(subtract) <- rownames(completeValues)
-    subtract$names <- rownames(subtract)
+    subtract$names <- names(value)
     subtract$miss <- value
     orderedDiff <- subtract[with(subtract, order(dif)), ]
     topDiff[[cont]] <- orderedDiff[1:m,]
