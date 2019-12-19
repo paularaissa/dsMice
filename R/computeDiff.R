@@ -17,11 +17,12 @@ computeDiff <- function(yHatMissing, varName, m) {
   idValor <- c()
   topDiff <- list()
   cont <- 1
-  for (value in yHatMiss) {
-    subtract <- data.frame(abs(mapply('-', value, completeValues))) #same x values rownames
+  for (idx in 1:length(yHatMiss)) {
+    #same x values rownames
+    subtract <- data.frame(abs(mapply('-', yHatMiss[idx], completeValues))) 
     colnames(subtract) <- "dif"
     rownames(subtract) <- rownames(completeValues)
-    subtract$names <- names(value)
+    subtract$names <- naRows[idx]
     subtract$miss <- value
     orderedDiff <- subtract[with(subtract, order(dif)), ]
     return(subtract)
