@@ -40,10 +40,10 @@ matchingDiffDS <- function(obj, rank, varName) {
       newData[which(row.names(newData) %in% row),'height'] <- merge_data[sample(which(merge_data$names %in% row),1),'height']
   }
   
-  test <- which(is.na(newData[,varName]))
-  return(test)
+  #test <- which(is.na(newData[,varName]))
+  #return(test)
   
-  #return(newData)
+  return(newData)
   
   #return(list(x, join, dataset))
 }
