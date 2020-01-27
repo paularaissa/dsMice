@@ -41,10 +41,8 @@ matchingDiffDS <- function(obj, rank, varName) {
   
  # if (length(which(is.na(dta2[[varName]]))) > 0) print("sobrou")
   
-  #test <- which(is.na(newData[,varName]))
-  #return(test)
+  ## Falta a alternativa de preencher os missing values que ficam sem valores a imputar.
   
   return(newData)
   
-  #return(list(x, join, dataset))
 }
