@@ -54,7 +54,7 @@ computeDiff <- function(yHatMissing, varName, m) {
   ## save object newData
   ##############################
   
-  return(environment())
-  #return(join)
+  #return(environment())
+  return(join)
 
 }
