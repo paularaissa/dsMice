@@ -25,27 +25,27 @@ matchingDiffDS <- function(obj, rank, varName) {
   
   #newDataSet[which(rownames(newDataSet) %in% rows_to_impute), varName] <- values_to_impute
   
-  dataset$ids = as.numeric(row.names(dataset))
-  row.names(dataset) <- NULL
-  complet <- dataset[which(!is.na(dataset[[varName]])),]
-  complet$ids <- as.numeric(rownames(complet))
-  
-  ids_complete <- unique(as.numeric(join$ids_complete))
-  valuesToImpute <- data.frame(value=complet[which(complet$ids %in% ids_complete),c(varName, 'ids')])
-  colnames(valuesToImpute) <- c(varName,'ids')
-  merge_data <- merge(x=join, y=valuesToImpute, by.x='ids_complete', by.y='ids')
-  newData <- dataset
-  for (row in 1:nrow(newData)) {
-    if(row %in% merge_data$names)
-      newData[which(row.names(newData) %in% row), varName] <- merge_data[sample(which(merge_data$names %in% row),1), varName]
-  }
+  # dataset$ids = as.numeric(row.names(dataset))
+  # row.names(dataset) <- NULL
+  # complet <- dataset[which(!is.na(dataset[[varName]])),]
+  # complet$ids <- as.numeric(rownames(complet))
+  # 
+  # ids_complete <- unique(as.numeric(join$ids_complete))
+  # valuesToImpute <- data.frame(value=complet[which(complet$ids %in% ids_complete),c(varName, 'ids')])
+  # colnames(valuesToImpute) <- c(varName,'ids')
+  # merge_data <- merge(x=join, y=valuesToImpute, by.x='ids_complete', by.y='ids')
+  # newData <- dataset
+  # for (row in 1:nrow(newData)) {
+  #   if(row %in% merge_data$names)
+  #     newData[which(row.names(newData) %in% row), varName] <- merge_data[sample(which(merge_data$names %in% row),1), varName]
+  # }
   
  # if (length(which(is.na(dta2[[varName]]))) > 0) print("sobrou")
   
   #test <- which(is.na(newData[,varName]))
   #return(test)
   
-  return(newData)
+  return(dataset[,varName])
   
   #return(list(x, join, dataset))
 }
