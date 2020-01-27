@@ -25,6 +25,22 @@ matchingDiffDS <- function(obj, rank, varName) {
   
   #newDataSet[which(rownames(newDataSet) %in% rows_to_impute), varName] <- values_to_impute
   
+  dataset$ids = as.numeric(row.names(dataset))
+  row.names(dataset) <- NULL
+  complet <- dataset[which(!is.na(dataset$height)),]
+  complet$ids <- as.numeric(rownames(complet))
   
-  return(list(x, join, dataset))
+  ids_complete <- unique(as.numeric(join$ids_complete))
+  valuesToImpute <- data.frame(value=complet[which(complet$ids %in% ids_complete),c('height', 'ids')])
+  colnames(valuesToImpute) <- c('height','ids')
+  teste <- merge(x=join, y=valuesToImpute, by.x='ids_complete', by.y='ids')
+  newData <- dataset
+  for (row in 1:nrow(newData)) {
+    if(row %in% teste$names)
+      newData[which(row.names(newData) %in% row),'height'] <- teste[sample(which(teste$names %in% row),1),'height']
+  }
+  
+  return(newData)
+  
+  #return(list(x, join, dataset))
 }
