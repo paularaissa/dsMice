@@ -22,8 +22,7 @@ matchingDiffDS <- function(obj, rank, varName) {
   
   dataset <- eval(parse(text="D"))
   newDataSet <- dataset
-  
-  #newDataSet[which(rownames(newDataSet) %in% rows_to_impute), varName] <- values_to_impute
+  imputed_var_name <- unlist(strsplit(varName, "\\$"))[2]
   
   # dataset$ids = as.numeric(row.names(dataset))
   # row.names(dataset) <- NULL
@@ -45,7 +44,7 @@ matchingDiffDS <- function(obj, rank, varName) {
   #test <- which(is.na(newData[,varName]))
   #return(test)
   
-  return(dataset[,varName])
+  return(dataset[,imputed_var_name])
   
   #return(list(x, join, dataset))
 }
