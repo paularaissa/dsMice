@@ -11,13 +11,7 @@
 #
 
 identifyNas <- function(execution) {
-  
-  # if(is.null(vars)) {
-  #   dataset <<- eval(parse(text="D"))
-  # } else {
-  #   dataset <<- getVarByName(vars)
-  # }
-  
+
   if(execution == 1) {
     dataset <<- eval(parse(text="D")) ##Define dataset of globalenv.
   } else if (execution > 1) {
@@ -36,6 +30,6 @@ identifyNas <- function(execution) {
   colnames(data.complete) <- completeCols
   rownames(data.complete) <- rownames(numericDataset)
   
-  return(list(naCols=naCols, nas=nas, completeCols=completeCols, data.nas=data.nas, data.complete=data.complete))
+  return(list(naCols=naCols, completeCols=completeCols, data.nas=table(data.nas)))
   
 }
