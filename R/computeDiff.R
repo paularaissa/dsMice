@@ -22,14 +22,14 @@ computeDiff <- function(yHatMissing, varName, m) {
     subtract <- data.frame(abs(mapply('-', yHatMiss[idx], completeValues))) 
     colnames(subtract) <- "dif"
     rownames(subtract) <- rownames(completeValues)
-    subtract$names <- naRows[idx]
-    subtract$miss <- yHatMiss[idx]
+    subtract$na_rows <- naRows[idx]
+    subtract$na_estimated <- yHatMiss[idx]
     orderedDiff <- subtract[with(subtract, order(dif)), ]
     topDiff[[cont]] <- orderedDiff[1:m,]
     cont <- cont + 1
   }
   join <- do.call(rbind, topDiff)
-  join$ids_complete <- rownames(join)
+  join$complete_rows <- rownames(join)
   return(join)
 
 }

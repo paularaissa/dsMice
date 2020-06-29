@@ -12,8 +12,9 @@ matchingDiffDS <- function(obj, rank, varName) {
     idx <- idx + 1
   }
   join <- do.call(rbind, map)
+  join$complete_rows <- as.numeric(join$complete_rows)
   
-  rows_to_impute <- unique(join$names)
+  rows_to_impute <- unique(join$na_rows)
   
   x <- eval(parse(text=varName))
   missing_values <- which(is.na(x))
@@ -24,6 +25,7 @@ matchingDiffDS <- function(obj, rank, varName) {
   newDataSet <- dataset
   
   newDataSet[which(rownames(newDataSet) %in% rows_to_impute), varName] <- values_to_impute
+  
   
   
   # return(newDataSet)
